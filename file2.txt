@@ -1,3 +1,7 @@
 Welcome to git demo
 
 Happy learning
+
+change : logout features
+
+CR1: file2 modified change for login
