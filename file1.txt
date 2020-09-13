@@ -10,3 +10,7 @@ change 4 : bug2 fix
 
 change 5 : CR2 made by teammate on remote repo
 
+change 5 -> bug3 made by teammate in local repo
+
+bug3 : file1 updated by teammate in local repo
+
