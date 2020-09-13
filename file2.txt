@@ -2,6 +2,8 @@ Welcome to git demo
 
 Happy learning
 
-change : logout features
+change 1 : logout features
 
 CR1: file2 modified change for login
+
+change 2 : to test push to remote repo
