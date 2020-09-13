@@ -7,3 +7,5 @@ change 1 : logout features
 CR1: file2 modified change for login
 
 change 2 : to test push to remote repo
+
+change 3 : made by teammate through push and we test pull
