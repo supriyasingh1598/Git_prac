@@ -1,0 +1,198 @@
+
+**** Error file opened at 20230614 204257 India Standard Time Rel 3.0.11 (2014-04-15) [721.619]
+Error:  >Wed Jun 14 20:42:57,778<    RfcException:
+    message: Connect to message server host failed
+Connection parameters: TYPE=B DEST=SAP_UPNWriteBack MSHOST=vhsrtcs.aws.superretailgroup.com MSSERV=3601 R3NAME=SRT GROUP=LB_RFC PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host PSL-72MH6Q3 with Unicode
+ERROR       hostname 'vhsrtcs.aws.superretailgroup.com' unknown
+TIME        Wed Jun 14 20:42:57 2023
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -2
+MODULE      ninti.c
+LINE        897
+DETAIL      NiPGetHostByName: 'vhsrtcs.aws.superretailgroup.com' not found
+SYSTEM CALL getaddrinfo
+COUNTER     1
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20230614 204339 India Standard Time Rel 3.0.11 (2014-04-15) [721.619]
+Error:  >Wed Jun 14 20:43:39,092<    RfcException:
+    message: Connect to message server host failed
+Connection parameters: TYPE=B DEST=SAP_UPNWriteBack MSHOST=vhsrtcs.aws.superretailgroup.com MSSERV=3601 R3NAME=SRT GROUP=LB_RFC PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host PSL-72MH6Q3 with Unicode
+ERROR       hostname 'vhsrtcs.aws.superretailgroup.com' unknown
+TIME        Wed Jun 14 20:43:39 2023
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -2
+MODULE      ninti.c
+LINE        897
+DETAIL      NiPGetHostByName: 'vhsrtcs.aws.superretailgroup.com' not found
+SYSTEM CALL getaddrinfo
+COUNTER     1
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20230614 204402 India Standard Time Rel 3.0.11 (2014-04-15) [721.619]
+Error:  >Wed Jun 14 20:44:02,012<    RfcException:
+    message: Connect to message server host failed
+Connection parameters: TYPE=B DEST=SAP_UPNWriteBack MSHOST=vhprdcs.aws.superretailgroup.com MSSERV=3601 R3NAME=PRD GROUP=LB_RFC PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host PSL-72MH6Q3 with Unicode
+ERROR       hostname 'vhprdcs.aws.superretailgroup.com' unknown
+TIME        Wed Jun 14 20:44:02 2023
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -2
+MODULE      ninti.c
+LINE        897
+DETAIL      NiPGetHostByName: 'vhprdcs.aws.superretailgroup.com' not found
+SYSTEM CALL getaddrinfo
+COUNTER     1
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20230614 210024 India Standard Time Rel 3.0.11 (2014-04-15) [721.619]
+Error:  >Wed Jun 14 21:00:24,577<    RfcException:
+    message: Connect to message server host failed
+Connection parameters: TYPE=B DEST=SAP_UPNWriteBack MSHOST=vhprdcs.aws.superretailgroup.com MSSERV=3601 R3NAME=PRD GROUP=LB_RFC PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host PSL-72MH6Q3 with Unicode
+ERROR       hostname 'vhprdcs.aws.superretailgroup.com' unknown
+TIME        Wed Jun 14 21:00:24 2023
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -2
+MODULE      ninti.c
+LINE        897
+DETAIL      NiPGetHostByName: 'vhprdcs.aws.superretailgroup.com' not found
+SYSTEM CALL getaddrinfo
+COUNTER     1
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20230614 210336 India Standard Time Rel 3.0.11 (2014-04-15) [721.619]
+Error:  >Wed Jun 14 21:03:36,476<    RfcException:
+    message: Connect to message server host failed
+Connection parameters: TYPE=B DEST=SAP_UPNWriteBack MSHOST=vhprdcs.aws.superretailgroup.com MSSERV=3601 R3NAME=PRD GROUP=LB_RFC PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host PSL-72MH6Q3 with Unicode
+ERROR       hostname 'vhprdcs.aws.superretailgroup.com' unknown
+TIME        Wed Jun 14 21:03:36 2023
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -2
+MODULE      ninti.c
+LINE        897
+DETAIL      NiPGetHostByName: 'vhprdcs.aws.superretailgroup.com' not found
+SYSTEM CALL getaddrinfo
+COUNTER     1
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20230614 210538 India Standard Time Rel 3.0.11 (2014-04-15) [721.619]
+Error:  >Wed Jun 14 21:05:38,310<    RfcException:
+    message: Connect to message server host failed
+Connection parameters: TYPE=B DEST=SAP_UPNWriteBack MSHOST=vhprdcs.aws.superretailgroup.com MSSERV=3601 R3NAME=PRD GROUP=LB_RFC PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host PSL-72MH6Q3 with Unicode
+ERROR       hostname 'vhprdcs.aws.superretailgroup.com' unknown
+TIME        Wed Jun 14 21:05:38 2023
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -2
+MODULE      ninti.c
+LINE        897
+DETAIL      NiPGetHostByName: 'vhprdcs.aws.superretailgroup.com' not found
+SYSTEM CALL getaddrinfo
+COUNTER     1
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20230614 212305 India Standard Time Rel 3.0.11 (2014-04-15) [721.619]
+Error:  >Wed Jun 14 21:23:05,296<    RfcException:
+    message: Connect to message server host failed
+Connection parameters: TYPE=B DEST=SAP_UPNWriteBack MSHOST=vhprdcs.aws.superretailgroup.com MSSERV=3601 R3NAME=PRD GROUP=LB_RFC PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host PSL-72MH6Q3 with Unicode
+ERROR       hostname 'vhprdcs.aws.superretailgroup.com' unknown
+TIME        Wed Jun 14 21:23:05 2023
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -2
+MODULE      ninti.c
+LINE        897
+DETAIL      NiPGetHostByName: 'vhprdcs.aws.superretailgroup.com' not found
+SYSTEM CALL getaddrinfo
+COUNTER     1
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20230614 212409 India Standard Time Rel 3.0.11 (2014-04-15) [721.619]
+Error:  >Wed Jun 14 21:24:09,719<    RfcException:
+    message: Connect to message server host failed
+Connection parameters: TYPE=B DEST=SAP_UPNWriteBack MSHOST=vhprdcs.aws.superretailgroup.com MSSERV=3601 R3NAME=PRD GROUP=LB_RFC PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host PSL-72MH6Q3 with Unicode
+ERROR       hostname 'vhprdcs.aws.superretailgroup.com' unknown
+TIME        Wed Jun 14 21:24:09 2023
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -2
+MODULE      ninti.c
+LINE        897
+DETAIL      NiPGetHostByName: 'vhprdcs.aws.superretailgroup.com' not found
+SYSTEM CALL getaddrinfo
+COUNTER     1
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
+
+**** Error file opened at 20230614 213124 India Standard Time Rel 3.0.11 (2014-04-15) [721.619]
+Error:  >Wed Jun 14 21:31:24,861<    RfcException:
+    message: Connect to message server host failed
+Connection parameters: TYPE=B DEST=SAP_UPNWriteBack MSHOST=vhprdcs.aws.superretailgroup.com MSSERV=3601 R3NAME=PRD GROUP=LB_RFC PCS=1
+
+LOCATION    CPIC (TCP/IP) on local host PSL-72MH6Q3 with Unicode
+ERROR       hostname 'vhprdcs.aws.superretailgroup.com' unknown
+TIME        Wed Jun 14 21:31:24 2023
+RELEASE     721
+COMPONENT   NI (network interface)
+VERSION     40
+RC          -2
+MODULE      ninti.c
+LINE        897
+DETAIL      NiPGetHostByName: 'vhprdcs.aws.superretailgroup.com' not found
+SYSTEM CALL getaddrinfo
+COUNTER     1
+
+    return code: RFC_FAILURE (1)
+    error group: 102
+    key: RFC_ERROR_COMMUNICATION
