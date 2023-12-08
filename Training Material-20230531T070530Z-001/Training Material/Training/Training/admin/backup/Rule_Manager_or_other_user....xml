@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Manager or other user..." type="PolicyOwner">
+  <Description>This rule is used to determine the owner of a Policy.</Description>
+  <Signature returnType="Identity"/>
+  <Source>import sailpoint.object.Identity;
+import sailpoint.object.PolicyViolation;
+
+//Identity manager = violation.getIdentity().getManager(); 
+
+    print("Beanshell namespace:");
+    for (int i = 0 ; i &amp;lt; this.variables.length ; i++) {
+       String name = this.variables[i];
+       Object value = eval(name);
+       if (value == void)
+           print(name + " = void");
+       else if (value == null)
+           print(name + " = null");
+       else
+           print(name + ": " + value.getClass().getSimpleName() + " = " + value);
+    }
+
+//if (manager != null) {
+//System.out.println("It's the manager:" + manager.getName()); 
+//   return manager;
+//} else {
+//System.out.println("It's not the manager of: " + policy.getIdentity().getName()); 
+//   return "spadmin";
+//}</Source>
+</Rule>

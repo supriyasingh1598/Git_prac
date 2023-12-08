@@ -1,0 +1,176 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ObjectConfig PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ObjectConfig    name="Identity">
+  <Attributes>
+    <Map>
+      <entry key="scopeCorrelationAttribute" value="region"/>
+    </Map>
+  </Attributes>
+  <ObjectAttribute displayName="att_user_name" name="name" silent="true" system="true" type="string"/>
+  <ObjectAttribute displayName="att_detected_roles" groupFactory="true" name="bundles" system="true" type="string"/>
+  <ObjectAttribute displayName="att_detected_role_summary" name="bundleSummary" silent="true" system="true" type="string"/>
+  <ObjectAttribute displayName="att_assigned_roles" groupFactory="true" name="assignedRoles" system="true" type="string"/>
+  <ObjectAttribute displayName="att_assigned_role_summary" name="assignedRoleSummary" silent="true" system="true" type="string"/>
+  <ObjectAttribute displayName="att_exceptions" name="exceptions" silent="true" system="true" type="string"/>
+  <ObjectAttribute displayName="att_last_refresh" name="lastRefresh" silent="true" system="true" type="string"/>
+  <ObjectAttribute displayName="att_last_login" name="lastLogin" silent="true" system="true" type="string"/>
+  <ObjectAttribute displayName="att_capabilities" name="capabilities" system="true" type="string"/>
+  <ObjectAttribute displayName="att_composite_score" name="scorecard.compositeScore" silent="true" system="true" type="string"/>
+  <ObjectAttribute displayName="att_manager" editMode="ReadOnly" groupFactory="true" name="manager" standard="true" type="sailpoint.object.Identity">
+    <AttributeSource name="managerId">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="managerId">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="att_email" editMode="ReadOnly" name="email" standard="true" type="string">
+    <AttributeSource name="email">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="email">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="att_first_name" editMode="ReadOnly" name="firstname" standard="true" type="string">
+    <AttributeSource name="firstName">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="firstName">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="att_last_name" editMode="ReadOnly" name="lastname" standard="true" type="string">
+    <AttributeSource name="lastName">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="lastName">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="att_inactive" editMode="ReadOnly" name="inactive" standard="true" type="boolean">
+    <AttributeSource name="inactiveIdentity">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="inactiveIdentity">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="att_display_name" editMode="ReadOnly" name="displayName" standard="true" type="string">
+    <AttributeSource name="fullName">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="fullName">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="Employee ID" editMode="ReadOnly" extendedNumber="1" name="empId" type="string">
+    <AttributeSource name="employeeId">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="employeeId">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="Region" editMode="ReadOnly" extendedNumber="3" groupFactory="true" name="region" type="string">
+    <AttributeSource name="region">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="region">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="JobTitle" editMode="ReadOnly" name="jobtitle" type="string">
+    <AttributeSource name="jobtitle">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="Status" editMode="ReadOnly" extendedNumber="5" groupFactory="true" name="status" type="string">
+    <AttributeSource name="AppRule: Identity Attribute: Employees HR System - Employees">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+      <RuleRef>
+        <Reference class="sailpoint.object.Rule"  name="Identity Attribute: Employees"/>
+      </RuleRef>
+    </AttributeSource>
+    <AttributeSource name="AppRule: IdentityAttribute: Contractors Contractor Feed">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+      <RuleRef>
+        <Reference class="sailpoint.object.Rule"  name="IdentityAttribute: Contractors"/>
+      </RuleRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="Department" editMode="Permanent" extendedNumber="6" name="department" type="string">
+    <AttributeSource name="department">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="department">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="Location" editMode="Permanent" extendedNumber="2" groupFactory="true" name="location" type="string">
+    <AttributeSource name="location">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="location">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="Cost Center" editMode="ReadOnly" groupFactory="true" multi="true" name="costcenter" type="string">
+    <AttributeSource name="costcenter">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="costcenter">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Contractor Feed"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+</ObjectConfig>

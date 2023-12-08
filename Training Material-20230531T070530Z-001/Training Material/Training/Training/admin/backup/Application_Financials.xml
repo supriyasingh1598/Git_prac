@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Application connector="sailpoint.connector.DelimitedFileConnector"  featuresString="DIRECT_PERMISSIONS, NO_RANDOM_ACCESS, DISCOVER_SCHEMA"   name="Financials" profileClass="" type="DelimitedFile">
+  <AccountCorrelationConfig>
+    <Reference class="sailpoint.object.CorrelationConfig"  name="Financial Correlation"/>
+  </AccountCorrelationConfig>
+  <Attributes>
+    <Map>
+      <entry key="acctAggregationEnd">
+        <value>
+          <Date>1407877940945</Date>
+        </value>
+      </entry>
+      <entry key="acctAggregationStart">
+        <value>
+          <Date>1407877932755</Date>
+        </value>
+      </entry>
+      <entry key="afterProvisioningRule"/>
+      <entry key="beforeProvisioningRule"/>
+      <entry key="compositeDefinition"/>
+      <entry key="delimiter" value=","/>
+      <entry key="deltaAggregation"/>
+      <entry key="file" value="/home/spadmin/AdministrationTraining/data/Finance-users.csv"/>
+      <entry key="filetransport" value="local"/>
+      <entry key="filterEmptyRecords">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="group.filetransport" value="local"/>
+      <entry key="group.filterEmptyRecords">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="group.hasHeader">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.isSortedByIndexColumn">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.mergeRows">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.stopIfLineHasWrongColumnLength">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="hasHeader">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="indexColumn" value="dbId"/>
+      <entry key="isSortedByIndexColumn">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="mergeColumns">
+        <value>
+          <List>
+            <String>groupmbr</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="mergeRows">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
+      <entry key="nativeChangeDetectionAttributes"/>
+      <entry key="nativeChangeDetectionEnabled">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionOperations"/>
+      <entry key="parseType" value="delimited"/>
+      <entry key="stopIfLineHasWrongColumnLength">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="[{&quot;isDefault&quot;:&quot;true&quot;,&quot;locale&quot;:&quot;en_US&quot;,&quot;value&quot;:&quot;Finance Application&lt;br>&quot;,&quot;isCurrent&quot;:&quot;true&quot;,&quot;displayName&quot;:&quot;English (United States)&quot;}]"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="templateApplication" value="DelimitedFile Template"/>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Schemas>
+    <Schema  displayAttribute="userName" groupAttribute=""  identityAttribute="dbId" instanceAttribute=""  nativeObjectType="account" objectType="account" permissionsRemediationModificationType="None">
+      <AttributeDefinition name="acct_lastLogin" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="app2_inactive" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="app2_privileged" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="app2_service" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="dbId" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="employeeId" remediationModificationType="None" type="string"/>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="groupmbr" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="userName" remediationModificationType="None" type="string"/>
+    </Schema>
+  </Schemas>
+</Application>

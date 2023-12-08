@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Bundle PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Bundle   name="TRAKK - Manager Access" type="it">
+  <Attributes>
+    <Map>
+      <entry key="approval_required">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="mergeTemplates" value="false"/>
+    </Map>
+  </Attributes>
+  <Inheritance>
+    <Reference class="sailpoint.object.Bundle"  name="TRAKK - Basic"/>
+  </Inheritance>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Profiles>
+    <Profile  >
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+      </ApplicationRef>
+      <Constraints>
+        <Filter operation="CONTAINS_ALL" property="capability">
+          <Value>
+            <List>
+              <String>approve</String>
+              <String>reject</String>
+            </List>
+          </Value>
+        </Filter>
+      </Constraints>
+    </Profile>
+  </Profiles>
+</Bundle>

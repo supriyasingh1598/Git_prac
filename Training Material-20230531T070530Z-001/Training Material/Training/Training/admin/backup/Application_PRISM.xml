@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Application connector="sailpoint.connector.JDBCConnector"  featuresString="DISCOVER_SCHEMA, PROVISIONING, ENABLE, UNLOCK, ACCOUNT_ONLY_REQUEST, ADDITIONAL_ACCOUNT_REQUEST" icon="databaseIcon"   name="PRISM" profileClass="" type="JDBC">
+  <Attributes>
+    <Map>
+      <entry key="SQL" value="select * from users"/>
+      <entry key="acctAggregationEnd">
+        <value>
+          <Date>1407878004329</Date>
+        </value>
+      </entry>
+      <entry key="acctAggregationStart">
+        <value>
+          <Date>1407877980465</Date>
+        </value>
+      </entry>
+      <entry key="afterProvisioningRule"/>
+      <entry key="beforeProvisioningRule"/>
+      <entry key="buildMapRule" value="PRISM - BuildMap"/>
+      <entry key="compositeDefinition"/>
+      <entry key="deltaAggregation"/>
+      <entry key="driverClass" value="com.mysql.jdbc.Driver"/>
+      <entry key="getObjectSQL" value="select * from users where login = &apos;$(identity)&apos;"/>
+      <entry key="group.SQL" value="select * from groups"/>
+      <entry key="group.driverClass" value="com.mysql.jdbc.Driver"/>
+      <entry key="group.getObjectSQL" value="select * from groups where name = &apos;$(identity)&apos;"/>
+      <entry key="group.indexColumns"/>
+      <entry key="group.mergeColumns"/>
+      <entry key="group.mergeRows">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.password" value="1:xDikd6BMwY+LL9iXETAjBg=="/>
+      <entry key="group.url" value="jdbc:mysql://localhost/prism"/>
+      <entry key="group.useExecuteQuery">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.user" value="root"/>
+      <entry key="jdbcProvisionRule" value="PRISM - Provision"/>
+      <entry key="mergeRows">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
+      <entry key="nativeChangeDetectionAttributes"/>
+      <entry key="nativeChangeDetectionEnabled">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionOperations"/>
+      <entry key="password" value="1:xDikd6BMwY+LL9iXETAjBg=="/>
+      <entry key="provisionRule" value="globalRule"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="[{&quot;isDefault&quot;:&quot;true&quot;,&quot;locale&quot;:&quot;en_US&quot;,&quot;value&quot;:&quot;This application represents the PRISM (Purchasing, Resourcing, Information Systems Management) Application.&amp;nbsp;&quot;,&quot;isCurrent&quot;:&quot;true&quot;,&quot;displayName&quot;:&quot;English (United States)&quot;}]"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="templateApplication" value="JDBC Template"/>
+      <entry key="url" value="jdbc:mysql://localhost/prism"/>
+      <entry key="useExecuteQuery">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="user" value="root"/>
+    </Map>
+  </Attributes>
+  <CorrelationRule>
+    <Reference class="sailpoint.object.Rule"  name="PRISM - Correlation"/>
+  </CorrelationRule>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="Walter.Henderson"/>
+  </Owner>
+  <Schemas>
+    <Schema  displayAttribute="login" groupAttribute="groups"  identityAttribute="login" instanceAttribute="" nativeObjectType="account" objectType="account">
+      <AttributeDefinition name="login" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="description" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="first" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="last" remediationModificationType="None" type="string"/>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="groups" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="status" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="locked" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="lastLogin" remediationModificationType="None" type="string"/>
+    </Schema>
+    <Schema  displayAttribute="name"  identityAttribute="name" instanceAttribute="" nativeObjectType="group" objectType="group">
+      <AttributeDefinition name="name" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="description" remediationModificationType="None" type="string"/>
+    </Schema>
+  </Schemas>
+  <Templates>
+    <Template name="PRISM" usage="Create">
+      <Field displayName="First Name" name="first" required="true" type="string">
+        <Script>
+          <Source>return identity.firstname;</Source>
+        </Script>
+      </Field>
+      <Field displayName="Last Name" name="last" required="true" type="string">
+        <Script>
+          <Source>return identity.lastname;</Source>
+        </Script>
+      </Field>
+      <Field displayName="Login ID" name="login" required="true" type="string">
+        <Script>
+          <Source>return identity.name;</Source>
+        </Script>
+      </Field>
+      <Field displayName="Status" name="status" type="string" value="A"/>
+      <Field displayName="Groups" name="groups" type="string" value="User"/>
+      <Field displayName="Account Locked" name="locked" required="true" type="string" value="N"/>
+    </Template>
+    <Template name="PRISM" usage="Update">
+      <Field displayName="Login" name="login" required="true" type="string">
+        <Script>
+          <Source>return identity.name;</Source>
+        </Script>
+      </Field>
+      <Field displayName="First Name" name="first" required="true" type="string">
+        <Script>
+          <Source>return identity.firstname;</Source>
+        </Script>
+      </Field>
+      <Field displayName="Last Name" name="last" required="true" type="string">
+        <Script>
+          <Source>return identity.lastname;</Source>
+        </Script>
+      </Field>
+      <Field displayName="Status" name="status" type="string" value="A"/>
+      <Field displayName="Account Locked" name="locked" required="true" type="string" value="N"/>
+    </Template>
+  </Templates>
+</Application>

@@ -1,0 +1,235 @@
+Log Location: /home/spadmin/ProvisioningTraining/admin/scripts/patch_6_2p2_091114_231219.log
+
+-------------------------
+ Executing Patch [6.2p2] 
+-------------------------
+LCM Enabled.  Importing LCM Patch [6.2p2]
+
+
+[1/6] Execute: RebuildCertificationDefinitionUpgrader
+Execute: RebuildCertificationDefinitionUpgrader
+    - Generating definition and group data for 0 certifications
+    - Found 0 groups of certification
+    - Elapsed Time: 150 milliseconds
+
+[2/6] Execute: TaskDefinitionTypeUpgrader
+Execute: TaskDefinitionTypeUpgrader
+    - 10% - 1 of 10 processed (9 remaining)
+    - 20% - 2 of 10 processed (8 remaining)
+    - 30% - 3 of 10 processed (7 remaining)
+    - 40% - 4 of 10 processed (6 remaining)
+    - 50% - 5 of 10 processed (5 remaining)
+    - 60% - 6 of 10 processed (4 remaining)
+    - 70% - 7 of 10 processed (3 remaining)
+    - 80% - 8 of 10 processed (2 remaining)
+    - 90% - 9 of 10 processed (1 remaining)
+    - 100% - 10 of 10 processed (0 remaining)
+    - Elapsed Time: 146 milliseconds
+
+[3/6] Execute: IdentityRequestPasswordScrubber
+Execute: IdentityRequestPasswordScrubber
+    - Elapsed Time: 5 milliseconds
+
+[4/6] Execute: GoogleAppsApplicationUpgrader
+Execute: GoogleAppsApplicationUpgrader
+    - Elapsed Time: 5 milliseconds
+
+[5/6] Include: WEB-INF/config/patch/identityiq-6.2p2-objects.xml
+Include: WEB-INF/config/patch/identityiq-6.2p2-objects.xml
+Include: WEB-INF/config/connectorRegistry.xml
+Include: WEB-INF/config/connector/ACF2-Full.xml
+Include: WEB-INF/config/connector/ActiveDirectory-Direct.xml
+Include: WEB-INF/config/connector/ADAM-Direct.xml
+Include: WEB-INF/config/connector/AirWatchConnector.xml
+Include: WEB-INF/config/connector/AIX-Direct.xml
+Include: WEB-INF/config/connector/AWSIAM.xml
+Include: WEB-INF/config/connector/BEAAqualogicEnterpriseSecurity.xml
+Include: WEB-INF/config/connector/BMCESSServer.xml
+Include: WEB-INF/config/connector/BMCITSM-Direct.xml
+Include: WEB-INF/config/connector/BMCRemedy-Direct.xml
+Include: WEB-INF/config/connector/Box.xml
+Include: WEB-INF/config/connector/CloudGateway.xml
+Include: WEB-INF/config/connector/DB2-Full.xml
+Include: WEB-INF/config/connector/DB2WindowsServer-Direct.xml
+Include: WEB-INF/config/connector/DelimitedFile.xml
+Include: WEB-INF/config/connector/GoodMobile.xml
+Include: WEB-INF/config/connector/GoogleAppsDirect.xml
+Include: WEB-INF/config/connector/GoToMeeting.xml
+Include: WEB-INF/config/connector/IBMLotusDomino-Direct.xml
+Include: WEB-INF/config/connector/IBMTivoliAccessManager.xml
+Include: WEB-INF/config/connector/IBMTivoliDS-Direct.xml
+Include: WEB-INF/config/connector/IBMTivoliIdentityManager.xml
+Include: WEB-INF/config/connector/JDBC.xml
+Include: WEB-INF/config/connector/JIVE.xml
+Include: WEB-INF/config/connector/LDAP.xml
+Include: WEB-INF/config/connector/LDIF.xml
+Include: WEB-INF/config/connector/Linux-Direct.xml
+Include: WEB-INF/config/connector/Logical.xml
+Include: WEB-INF/config/connector/Mainframe.xml
+Include: WEB-INF/config/connector/MicrosoftExchangeOnline.xml
+Include: WEB-INF/config/connector/MicrosoftForefrontIdentityManager.xml
+Include: WEB-INF/config/connector/MicrosoftOffice365.xml
+Include: WEB-INF/config/connector/MicrosoftSharePoint.xml
+Include: WEB-INF/config/connector/MicrosoftSharePointOnline.xml
+Include: WEB-INF/config/connector/MicrosoftSQLServer-Direct.xml
+Include: WEB-INF/config/connector/MobileIron.xml
+Include: WEB-INF/config/connector/NetSuite.xml
+Include: WEB-INF/config/connector/NovelleDirectory-Direct.xml
+Include: WEB-INF/config/connector/NovellIdentityManager.xml
+Include: WEB-INF/config/connector/OpenLDAP-Direct.xml
+Include: WEB-INF/config/connector/OracleApplications-Direct.xml
+Include: WEB-INF/config/connector/OracleDatabase-Direct.xml
+Include: WEB-INF/config/connector/OracleIdentityManager.xml
+Include: WEB-INF/config/connector/OracleInternetdirectory-Direct.xml
+Include: WEB-INF/config/connector/PeopleSoft-Direct.xml
+Include: WEB-INF/config/connector/RACF.xml
+Include: WEB-INF/config/connector/RACF-Full.xml
+Include: WEB-INF/config/connector/Rally.xml
+Include: WEB-INF/config/connector/RemedyForce.xml
+Include: WEB-INF/config/connector/RSAAceServer-Direct.xml
+Include: WEB-INF/config/connector/RuleBasedFileParser.xml
+Include: WEB-INF/config/connector/Salesforce.xml
+Include: WEB-INF/config/connector/SAP-Direct.xml
+Include: WEB-INF/config/connector/SAPHR_HCM.xml
+Include: WEB-INF/config/connector/SAPPortal-UMWebService.xml
+Include: WEB-INF/config/connector/SCIM.xml
+Include: WEB-INF/config/connector/ServiceNow.xml
+Include: WEB-INF/config/connector/Siebel.xml
+Include: WEB-INF/config/connector/Solaris-Direct.xml
+Include: WEB-INF/config/connector/SQLLoader.xml
+Include: WEB-INF/config/connector/SunIDM.xml
+Include: WEB-INF/config/connector/SunOne-Direct.xml
+Include: WEB-INF/config/connector/Sybase-Direct.xml
+Include: WEB-INF/config/connector/Tenrox.xml
+Include: WEB-INF/config/connector/TopSecret.xml
+Include: WEB-INF/config/connector/TopSecret-Full.xml
+Include: WEB-INF/config/connector/Unix.xml
+Include: WEB-INF/config/connector/VMS.xml
+Include: WEB-INF/config/connector/Webex.xml
+Include: WEB-INF/config/connector/WindowsLocal-Direct.xml
+Include: WEB-INF/config/connector/XMLConnector.xml
+Include: WEB-INF/config/connector/Yammer.xml
+Include: WEB-INF/config/connector/Workday.xml
+Include: WEB-INF/config/connector/GECentricity.xml
+Include: WEB-INF/config/connector/ProjectServer.xml
+Include: WEB-INF/config/connector/PeopleSoftHRMS-Direct.xml
+Include: WEB-INF/config/connector/EPIC.xml
+Include: WEB-INF/config/connector/CyberArk.xml
+Include: WEB-INF/config/connector/IBMi.xml
+Include: WEB-INF/config/tasks.xml
+Include: WEB-INF/config/tasksCommon.xml
+TaskDefinition:Account Aggregation
+TaskDefinition:Identity Refresh
+TaskDefinition:Sequential Task Launcher
+TaskDefinition:System Maintenance
+TaskDefinition:Identity Request Maintenance
+TaskDefinition:Encrypted Data Synchronization Task
+TaskDefinition:IQService Public Key Exchange Task
+TaskDefinition:Activity Aggregation
+TaskDefinition:Policy Scan
+TaskDefinition:Cancel Certification Group
+TaskDefinition:Activate Certification Group
+TaskDefinition:Apply Certification Definition Changes
+TaskDefinition:Certification Manager
+TaskDefinition:Target Aggregation
+TaskDefinition:Account Group Aggregation
+TaskDefinition:Missing Managed Entitlements Scan
+TaskDefinition:Continuous Certification Refresh
+TaskDefinition:ITIM Application Creator
+TaskDefinition:Novell Application Creator
+TaskDefinition:Role Index Refresh
+TaskDefinition:Entitlement Role Generator
+TaskDefinition:Hidden Missing Managed Entitlements Scan
+TaskDefinition:Impact Analysis
+TaskDefinition:Policy Impact Analysis
+TaskDefinition:Workflow Launcher
+TaskDefinition:Business Role Mining
+TaskDefinition:IT Role Mining
+TaskDefinition:New IT Role Mining
+TaskDefinition:Data Export
+TaskDefinition:BMC ESS Application Creator
+TaskDefinition:FIM Application Creator
+TaskDefinition:OIM Application Creator
+TaskDefinition:Complete Orphan Identity Requests
+TaskDefinition:Identity IQ Cloud Gateway Synchronization Task
+TaskDefinition:Run Rule
+Include: WEB-INF/config/workflow.xml
+Workflow:Role Modeler - Impact Analysis
+EmailTemplate:Role Modeler - Impact Analysis Review
+Workflow:Role Modeler - Owner Approval
+EmailTemplate:Role Modeler - Approval
+Workflow:Identity Refresh
+Workflow:Identity Update
+Workflow:Scheduled Assignment
+Workflow:Scheduled Role Activation
+Workflow:Entitlement Update
+Workflow:Password Intercept
+Include: WEB-INF/config/workflow-identityCorrelation.xml
+Workflow:Identity Correlation
+Form:LCM Identity Approval
+Include: WEB-INF/config/lcmemailtemplates.xml
+EmailTemplate:LCM User Notification
+EmailTemplate:LCM Requester Notification
+EmailTemplate:LCM Manager Notification
+EmailTemplate:Batch Approval
+EmailTemplate:LCM Identity Update Approval
+EmailTemplate:LCM Registration User Notification
+EmailTemplate:LCM Registration Manager Notification
+EmailTemplate:LCM Registration Security Officer Notification
+EmailTemplate:LCM Registration Approval
+EmailTemplate:Pending Manual Changes
+EmailTemplate:LCM Password Change Notification
+EmailTemplate:Native Account Change Manager Notification
+Include: WEB-INF/config/lcmrules.xml
+Rule:Check Password Policy
+Rule:LCM Build Owner Approvals
+Rule:LCM Build Identity Approvers
+Rule:LCM Validate Identity Name
+Rule:LCM Validate Password
+Rule:LCM Workflow Library
+Rule:LCM Build Identity ApprovalSet
+Rule:Objects in Requestor's Authorized Scopes
+Rule:Objects in Requestee's Assigned Scope
+Rule:Objects in Requestor's Authorized Scopes or Requestee's Assigned Scope
+Rule:Objects Owned by the Requestor
+Rule:All Objects
+Include: WEB-INF/config/connector/GoogleApps.xml
+Include: WEB-INF/config/connector/AS400-Full.xml
+Include: WEB-INF/config/connector/Box.Net.xml
+Workflow:Scheduled Assignment
+TaskDefinition:Sequential Task Launcher
+Merge: Configuration:IdentitySelectorConfiguration
+Merge: Configuration:TargetCollectorRegistry
+TaskDefinition:Certification Activity by Application Live Report
+Capability:Auditor
+Capability:IdentityAdministrator
+    - Elapsed Time: 3 seconds
+
+[6/6] Include: WEB-INF/config/patch/identityiq-lcm-6.2p2-objects.xml
+Include: WEB-INF/config/patch/identityiq-lcm-6.2p2-objects.xml
+Include: WEB-INF/config/lcmReportForms.xml
+Form:Access Request Status Form
+Form:Edit Identity Requests Status Custom Fields
+Form:Account Request Status Custom Fields
+Form:Identity Request Report Form
+Form:Password Management Requests Fields
+Form:Registration Request Report Form
+    - Elapsed Time: 46 milliseconds
+
+-----------------
+ Upgrade Summary 
+-----------------
+     Elapsed Time: 11 seconds
+     Log Location: /home/spadmin/ProvisioningTraining/admin/scripts/patch_6_2p2_091114_231219.log
+Commands Executed: 6
+	- Execute: RebuildCertificationDefinitionUpgrader                [OK] (150ms)
+	- Execute: TaskDefinitionTypeUpgrader                            [OK] (146ms)
+	- Execute: IdentityRequestPasswordScrubber                       [OK] (5ms)
+	- Execute: GoogleAppsApplicationUpgrader                         [OK] (5ms)
+	- Include: WEB-INF/config/patch/identityiq-6.2p2-objects.xml     [OK] (3s)
+	- Include: WEB-INF/config/patch/identityiq-lcm-6.2p2-objects.xml [OK] (46ms)
+
+
+-------------------------------------
+ Patch [6.2p2] applied successfully! 
+-------------------------------------

@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskDefinition   name="Refresh and Provision Roles" resultAction="Delete" subType="task_item_type_identity" type="Identity">
+  <Attributes>
+    <Map>
+      <entry key="correlateEntitlements" value="true"/>
+      <entry key="provision" value="true"/>
+    </Map>
+  </Attributes>
+  <Description>Template for identity refresh scans.</Description>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Parent>
+    <Reference class="sailpoint.object.TaskDefinition"  name="Identity Refresh"/>
+  </Parent>
+</TaskDefinition>

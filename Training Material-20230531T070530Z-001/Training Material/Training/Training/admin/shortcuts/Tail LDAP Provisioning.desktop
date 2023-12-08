@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Tail LDAP Provisioning Log
+Type=Application
+Terminal=false
+Exec=/home/spadmin/ProvisioningTraining/admin/scripts/TailLDAP.sh
+Name[en_US]=Tail LDAP Provisioning Log
+GenericName[en_US]=

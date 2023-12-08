@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE AuditConfig PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<AuditConfig    name="AuditConfig">
+  <AuditActions>
+    <AuditAction displayName="Login" enabled="true" name="login"/>
+    <AuditAction displayName="Login Failure" enabled="true" name="loginFailure"/>
+    <AuditAction displayName="Import File" enabled="true" name="import"/>
+    <AuditAction displayName="Run Task" enabled="true" name="run"/>
+    <AuditAction displayName="Email Sent" name="emailSent"/>
+    <AuditAction displayName="Email Failure" name="emailFailure"/>
+    <AuditAction displayName="Delegate Certification Item" name="delegate"/>
+    <AuditAction displayName="Delegation Completion" name="completeDelegation"/>
+    <AuditAction displayName="Delegation Revocation" name="revokeDelegation"/>
+    <AuditAction displayName="Reassign Certification" name="reassign"/>
+    <AuditAction displayName="Rescind Certification" name="rescindCertification"/>
+    <AuditAction displayName="Remediate Certification Item" name="remediate"/>
+    <AuditAction displayName="Certification Signoff" name="signoff"/>
+    <AuditAction displayName="Certification Signoff Approval" name="signoffEscalation"/>
+    <AuditAction displayName="Escalate Work Item" name="escalate"/>
+    <AuditAction displayName="Expire Work Item" name="expire"/>
+    <AuditAction displayName="Approve Work Item" name="approve"/>
+    <AuditAction displayName="Reject Work Item" name="reject"/>
+    <AuditAction displayName="Start Workflow Process" name="startWorkflow"/>
+    <AuditAction displayName="Update Role" name="updateRole"/>
+    <AuditAction displayName="Disable Role" name="disableRole"/>
+    <AuditAction displayName="WorkItem Forwarded" enabled="true" name="Forward"/>
+    <AuditAction displayName="Assign Work Item" name="WorkItemAssignment"/>
+    <AuditAction displayName="Assign Remediation Item" name="RemediationItemAssignment"/>
+    <AuditAction displayName="Prune Histories" name="historiesPruned"/>
+    <AuditAction displayName="Prune Task Results" name="taskResultsPruned"/>
+    <AuditAction displayName="Prune Requests" name="requestsPruned"/>
+    <AuditAction displayName="Prune Syslog Events" name="syslogEventsPruned"/>
+    <AuditAction displayName="Prune Certifications" name="certificationsPruned"/>
+    <AuditAction displayName="Archive Certifications" name="certificationsArchived"/>
+    <AuditAction displayName="Prune Certification Archives" name="certificationArchivesPruned"/>
+    <AuditAction displayName="Finish Certifications" name="certificationsFinished"/>
+    <AuditAction displayName="Scan Remediations" name="remediationsScanned"/>
+    <AuditAction displayName="Forward Inactive Work Items" name="inactiveWorkItemsForwarded"/>
+    <AuditAction displayName="Denormalize Scopes" name="scopesDenormalized"/>
+    <AuditAction displayName="Certifications Phased" name="certificationsPhased"/>
+    <AuditAction displayName="Certification Items Phased" name="certificationItemsPhased"/>
+    <AuditAction displayName="Continuous Certifications Processed" name="continuousCertsProcessed"/>
+    <AuditAction displayName="Continuous Certification Items Required" name="continuousCertItemsRequired"/>
+    <AuditAction displayName="Continuous Certification Items Overdue" name="continuousCertItemsOverdue"/>
+    <AuditAction displayName="Provision" name="provision"/>
+    <AuditAction displayName="Provisioning Expansion" name="expansion"/>
+    <AuditAction displayName="Identity Manually Correlated" name="identityCorrelation"/>
+    <AuditAction displayName="Link manually moved from one identity to another" name="linkMoved"/>
+    <AuditAction displayName="Identity Event" enabled="true" name="identityLifecycleEvent"/>
+    <AuditAction displayName="Role sunrise" enabled="true" name="activate"/>
+    <AuditAction displayName="Role sunset" enabled="true" name="deactivate"/>
+    <AuditAction displayName="Allow Exception on Violation" name="violationAllowException"/>
+    <AuditAction displayName="Correct Violation" name="violationCorrection"/>
+    <AuditAction displayName="Delegate Violation" name="violationDelegate"/>
+    <AuditAction displayName="Approve Line Item" enabled="true" name="ApproveLineItem"/>
+    <AuditAction displayName="Accounts Request Started" enabled="true" name="AccountsRequestStart"/>
+    <AuditAction displayName="Comment Added" enabled="true" name="Comment"/>
+    <AuditAction displayName="Create" enabled="true" name="Create"/>
+    <AuditAction displayName="Delete" enabled="true" name="Delete"/>
+    <AuditAction displayName="Disable" enabled="true" name="Disable"/>
+    <AuditAction displayName="Enable" enabled="true" name="Enable"/>
+    <AuditAction displayName="Entitlement Added" enabled="true" name="EntitlementAdd"/>
+    <AuditAction displayName="Entitlement Removed" enabled="true" name="EntitlementRemove"/>
+    <AuditAction displayName="Entitlements Request Started" enabled="true" name="EntitlementsRequestStart"/>
+    <AuditAction displayName="Forgot Password Start" enabled="true" name="ExpirePasswordStart"/>
+    <AuditAction displayName="Expired Password Start" enabled="true" name="ForgotPasswordStart"/>
+    <AuditAction displayName="Identity Create Request Started" enabled="true" name="IdentityCreateRequestStart"/>
+    <AuditAction displayName="Identity Edit Request Started" enabled="true" name="IdentityEditRequestStart"/>
+    <AuditAction displayName="Manual Provisioning" enabled="true" name="ManualChange"/>
+    <AuditAction displayName="Modify" enabled="true" name="Modify"/>
+    <AuditAction displayName="Password Request Start" enabled="true" name="PasswordsRequestStart"/>
+    <AuditAction displayName="Password Changed" enabled="true" name="PasswordChange"/>
+    <AuditAction displayName="Forgot Password Changed" enabled="true" name="ForgotPasswordChange"/>
+    <AuditAction displayName="Expired Password Changed" enabled="true" name="ExpiredPasswordChange"/>
+    <AuditAction displayName="Provisioning Complete" enabled="true" name="ProvisioningComplete"/>
+    <AuditAction displayName="Provisioning Failure" enabled="true" name="ProvisioningFailure"/>
+    <AuditAction displayName="Reject Line Item" enabled="true" name="RejectLineItem"/>
+    <AuditAction displayName="Role Added" enabled="true" name="RoleAdd"/>
+    <AuditAction displayName="Role Removed" enabled="true" name="RoleRemove"/>
+    <AuditAction displayName="Roles Request Started" enabled="true" name="RolesRequestStart"/>
+    <AuditAction displayName="Unlock" enabled="true" name="Unlock"/>
+    <AuditAction displayName="Identity Locked" enabled="true" name="IdentityLocked"/>
+    <AuditAction displayName="Authentication Answer Incorrect" enabled="true" name="AuthAnswerIncorrect"/>
+    <AuditAction displayName="Access Request Started" enabled="true" name="AccessRequestStart"/>
+  </AuditActions>
+  <AuditAttributes>
+    <AuditAttribute class="Identity" displayName="Assigned Roles" name="assignedRoles"/>
+    <AuditAttribute class="Identity" displayName="Capabilities" name="capabilities"/>
+    <AuditAttribute class="Identity" displayName="Controlled Scopes" name="controlledScopes"/>
+    <AuditAttribute class="Identity" displayName="Password" name="password"/>
+    <AuditAttribute class="Identity" displayName="Assigned Scope" name="scope"/>
+    <AuditAttribute class="Identity" displayName="Correlation Status" name="correlationStatus"/>
+    <AuditAttribute class="Identity" displayName="Department" name="department"/>
+  </AuditAttributes>
+  <AuditClasses>
+    <AuditClass name="ActivityDataSource"/>
+    <AuditClass name="Application"/>
+    <AuditClass name="AuditConfig"/>
+    <AuditClass displayName="Role" name="Bundle"/>
+    <AuditClass name="Category"/>
+    <AuditClass name="Capability"/>
+    <AuditClass name="Configuration"/>
+    <AuditClass name="EmailTemplate"/>
+    <AuditClass name="GroupFactory"/>
+    <AuditClass name="JasperTemplate"/>
+    <AuditClass name="MessageTemplate"/>
+    <AuditClass name="MiningConfig"/>
+    <AuditClass name="ObjectConfig"/>
+    <AuditClass name="Policy"/>
+    <AuditClass name="RequestDefinition"/>
+    <AuditClass name="RightConfig"/>
+    <AuditClass name="Rule"/>
+    <AuditClass name="ScoreConfig"/>
+    <AuditClass name="TaskDefinition"/>
+    <AuditClass name="TaskSchedule"/>
+    <AuditClass name="TimePeriod"/>
+    <AuditClass name="UIConfig"/>
+    <AuditClass name="Workflow"/>
+  </AuditClasses>
+</AuditConfig>

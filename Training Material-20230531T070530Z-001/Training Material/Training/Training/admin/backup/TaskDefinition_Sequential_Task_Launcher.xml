@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskDefinition  executor="sailpoint.task.SequentialTaskExecutor" formPath="/monitor/tasks/sequentialTask.xhtml"   name="Sequential Task Launcher" progressInterval="5000" progressMode="String" template="true" type="Generic">
+  <Description>
+            Template for creating a task that runs multiple other tasks.
+        </Description>
+  <Signature>
+    <Inputs>
+      <Argument multi="true" name="taskList" type="TaskDefinition">
+        <Prompt>Enter the list of tasks you would like to run.  Tasks will be run in the order that they are entered.</Prompt>
+      </Argument>
+      <Argument name="trace" type="boolean">
+        <Prompt>task_sequential_trace</Prompt>
+      </Argument>
+      <Argument name="exitOnError" type="boolean">
+        <Prompt>task_sequential_exit_on_error</Prompt>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="tasksRun" type="string">
+        <Prompt>task_sequential_tasks_executed</Prompt>
+      </Argument>
+    </Returns>
+  </Signature>
+</TaskDefinition>

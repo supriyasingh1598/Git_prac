@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<ImportAction name="merge">
+
+<Configuration  name="SystemConfiguration">
+  <Attributes>
+    <Map>
+      <entry key="emailNotifierType" value="redirectToFile"/>
+      <entry key="enableRoleSunActivate">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="enableRoleSunAssign">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="enableSyslog">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="lcmEnabled" value="true"/>
+      <entry key="redirectingEmailNotifierAddress" value="admin@example.com"/>
+      <entry key="redirectingEmailNotifierFilename" value="/home/spadmin/logs/iiq_email.log"/>
+      <entry key="supportedLanguages">
+        <value>
+          <List>
+            <String>en_US</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="syncSchema" value="true"/>
+      <entry key="syslogLevel" value="ERROR"/>
+      <entry key="syslogPurgeAge">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="unsupportedBrowserNotification">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</Configuration>
+</ImportAction>
+</sailpoint>

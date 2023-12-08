@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Tail Email Log
+Type=Application
+Terminal=false
+Exec=/home/spadmin/ProvisioningTraining/admin/scripts/TailEmailLog.sh
+Name[en_US]=Tail Email Log
+GenericName[en_US]=

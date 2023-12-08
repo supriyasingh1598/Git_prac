@@ -1,0 +1,129 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Application connector="sailpoint.connector.DelimitedFileConnector"  featuresString="DIRECT_PERMISSIONS, NO_RANDOM_ACCESS, DISCOVER_SCHEMA"   name="PAM" profileClass="" type="DelimitedFile">
+  <AccountCorrelationConfig>
+    <Reference class="sailpoint.object.CorrelationConfig"  name="PAM Correlation"/>
+  </AccountCorrelationConfig>
+  <Attributes>
+    <Map>
+      <entry key="acctAggregationEnd">
+        <value>
+          <Date>1407877958478</Date>
+        </value>
+      </entry>
+      <entry key="acctAggregationStart">
+        <value>
+          <Date>1407877956356</Date>
+        </value>
+      </entry>
+      <entry key="compositeDefinition"/>
+      <entry key="delimiter" value=","/>
+      <entry key="file" value="/home/spadmin/AdministrationTraining/data/PAM-users.csv"/>
+      <entry key="filetransport" value="local"/>
+      <entry key="filterEmptyRecords">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="group.delimiter" value=","/>
+      <entry key="group.file" value="/home/spadmin/AdministrationTraining/data/PAM-group-permissions.csv"/>
+      <entry key="group.filetransport" value="local"/>
+      <entry key="group.filterEmptyRecords">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="group.hasHeader">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="group.isSortedByIndexColumn">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.mergeRows">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.stopIfLineHasWrongColumnLength">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="hasHeader">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="indexColumn" value="User ID"/>
+      <entry key="isSortedByIndexColumn">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="mergeColumns">
+        <value>
+          <List>
+            <String>Permission Group</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="mergeRows">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
+      <entry key="nativeChangeDetectionAttributes"/>
+      <entry key="nativeChangeDetectionEnabled">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionOperations"/>
+      <entry key="parseType" value="delimited"/>
+      <entry key="partitionMode" value="auto"/>
+      <entry key="postIterateRule" value="Test - Post - Iterate"/>
+      <entry key="preIterateRule" value="Test - Pre-Iterate"/>
+      <entry key="stopIfLineHasWrongColumnLength">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="Financial Significant Application&lt;br>&#xA;&#xA;"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="templateApplication" value="DelimitedFile Template"/>
+    </Map>
+  </Attributes>
+  <CustomizationRule>
+    <Reference class="sailpoint.object.Rule"  name="Test - Customization"/>
+  </CustomizationRule>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="PAM Administrators"/>
+  </Owner>
+  <Remediators>
+    <Reference class="sailpoint.object.Identity"  name="PAM Administrators"/>
+  </Remediators>
+  <Schemas>
+    <Schema  displayAttribute="User Name" groupAttribute="Permission Group"  identityAttribute="User ID" instanceAttribute=""  nativeObjectType="account" objectType="account" permissionsRemediationModificationType="None">
+      <AttributeDefinition entitlement="true" name="Database Name" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="Last Login Date" remediationModificationType="None" type="string"/>
+      <AttributeDefinition entitlement="true" multi="true" name="Permission Group" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="User ID" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="User Name" remediationModificationType="None" type="string"/>
+    </Schema>
+    <Schema  displayAttribute="Permission Group"  identityAttribute="Permission Group" includePermissions="true" instanceAttribute=""  nativeObjectType="group" objectType="group" permissionsRemediationModificationType="None">
+      <AttributeDefinition name="Permission Group" remediationModificationType="None" type="string"/>
+      <AttributeDefinition entitlement="true" multi="true" name="Permission Rights" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="Description" remediationModificationType="None" type="string"/>
+    </Schema>
+  </Schemas>
+</Application>

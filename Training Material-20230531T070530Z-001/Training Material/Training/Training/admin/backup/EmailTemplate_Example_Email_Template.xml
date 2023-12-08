@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE EmailTemplate PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<EmailTemplate   name="Example Email Template">
+  <Body>Comment added to workflowCase by $requester: 
+Comment: $comment 
+</Body>
+  <Description>
+      Email Template for notifying the requester/owner of a work item
+      that a new comment has been added.
+    </Description>
+  <Signature>
+    <Inputs>
+      <Argument name="requester" type="string">
+        <Description>The requester.</Description>
+      </Argument>
+      <Argument name="comment" type="Comment">
+        <Description>The Comment object with information about the comment.</Description>
+      </Argument>
+    </Inputs>
+  </Signature>
+  <Subject>Comments added to workflow by: $requester</Subject>
+</EmailTemplate>

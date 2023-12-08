@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskDefinition  executor="sailpoint.task.EncryptedDataSyncExecutor"   name="Encrypted Data Synchronization Task" progressInterval="5000" progressMode="String" resultAction="Rename" template="true" type="System">
+  <Description>A task that can be used to re-encrypt all encrypted data using the newest key in the keystore. 
+                     Also used to change the public/private keys that can be used for IQService comm.</Description>
+  <RequiredRights>
+    <Reference class="sailpoint.object.SPRight"  name="SyncEncryptedDataTask"/>
+  </RequiredRights>
+  <Signature>
+    <Inputs>
+      <Argument name="disableApplicationSync" type="boolean">
+        <Prompt>task_in_key_sync_disable_applications</Prompt>
+      </Argument>
+      <Argument name="disableIdentitySync" type="boolean">
+        <Prompt>task_in_key_sync_disable_identities</Prompt>
+      </Argument>
+      <Argument name="disableIntegrationSync" type="boolean">
+        <Prompt>task_in_key_sync_disable_integration</Prompt>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="applicationsRefreshed" type="String">
+        <Prompt>task_out_applications_synced</Prompt>
+      </Argument>
+      <Argument name="identitiesRefreshed" type="String">
+        <Prompt>task_out_identities_synced</Prompt>
+      </Argument>
+      <Argument name="integrationConfigsRefreshed" type="String">
+        <Prompt>task_out_integrations_synced</Prompt>
+      </Argument>
+    </Returns>
+  </Signature>
+</TaskDefinition>

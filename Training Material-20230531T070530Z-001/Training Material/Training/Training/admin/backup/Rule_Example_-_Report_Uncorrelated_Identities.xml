@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Example - Report Uncorrelated Identities">
+  <Source>
+
+    import java.util.List;
+    import java.util.Iterator;
+    import sailpoint.api.*;
+    import sailpoint.object.*;
+		
+		
+try {
+
+		
+//
+// Here, you can do whatever magic you want. In this case, we are creating a list of all un-correlated identities in the system.  
+//
+
+        QueryOptions qo = new QueryOptions();
+        
+
+        qo.addFilter(Filter.eq("correlated",(Boolean)false));
+        
+        
+        Iterator result = context.search(Identity.class, qo);
+        while (result.hasNext()) {
+			Identity user = (Identity)result.next();
+			System.out.println("\nIdentity: " + user.getName());
+		}
+		
+				
+		} catch (Exception e) {
+			//Catch exception if any
+			System.err.println("Error: " + e.getMessage());
+		}
+
+  </Source>
+</Rule>

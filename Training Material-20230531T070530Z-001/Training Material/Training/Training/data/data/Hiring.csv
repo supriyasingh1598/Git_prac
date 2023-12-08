@@ -1,0 +1,27 @@
+dbID,userName,userId,department,inactiveIdentity,Role,accessGroup
+1a2c3a,Richard Jackson,rjackson,Accounting,FALSE,Controller,Offers
+1a2c3a,Richard Jackson,rjackson,Accounting,FALSE,Controller,PostJobs
+1a2c3a,Richard Jackson,rjackson,Accounting,FALSE,Controller,Audit
+1a2c3a,Richard Jackson,rjackson,Accounting,FALSE,Controller,ViewCandidates
+1a2a3d4b,Kenneth Hill,khill,Engineering,FALSE,Production Test Engineer,PostJobs
+1a2a3d4b,Kenneth Hill,khill,Engineering,FALSE,Production Test Engineer,ViewCandidates
+1a2c3a4a,Larry Morgan,lmorgan,Accounting,FALSE,AP Accountant,PostJobs
+1a2c3a4a,Larry Morgan,lmorgan,Accounting,FALSE,AP Accountant,ViewCandidates
+1b2b,Dennis Barnes,dbarnes,Regional Operations,FALSE,,Offers
+1b2b,Dennis Barnes,dbarnes,Regional Operations,FALSE,,PostJobs
+1b2b,Dennis Barnes,dbarnes,Regional Operations,FALSE,,ViewCandidates
+1b2a3a4a,Carl Foster,cfoster,Information Technology,FALSE,Data Communications Analyst,PostJobs
+1b2a3a4a,Carl Foster,cfoster,Information Technology,FALSE,Data Communications Analyst,ViewCandidates
+1b2b3a4e,Keith Mcdonald,kmcdonald,Human Resources,FALSE,,PostJobs
+1b2b3a4e,Keith Mcdonald,kmcdonald,Human Resources,FALSE,,ViewCandidates
+1b2b3a4e,Keith Mcdonald,kmcdonald,Human Resources,FALSE,,Offers
+1b2c3b4b,Harry Dixon,hdixon,Accounting,FALSE,,PostJobs
+1b2c3b4b,Harry Dixon,hdixon,Accounting,FALSE,,ViewCandidates
+1c2a3c,Eugene Hawkins,ehawkins,Engineering,FALSE,,PostJobs
+1c2a3c,Eugene Hawkins,ehawkins,Engineering,FALSE,,ViewCandidates
+1c2a3b4b,Todd Olson,tolson,Information Technology,FALSE,,PostJobs
+1c2a3b4b,Todd Olson,tolson,Information Technology,FALSE,,ViewCandidates
+1c2b3c4a,Antonio Franklin,afranklin,Inventory,FALSE,,PostJobs
+1c2b3c4a,Antonio Franklin,afranklin,Inventory,FALSE,,ViewCandidates
+1c2c3c4e,Curtis Fernandez,cfernandez,Finance,FALSE,,PostJobs
+1c2c3c4e,Curtis Fernandez,cfernandez,Finance,FALSE,,ViewCandidates

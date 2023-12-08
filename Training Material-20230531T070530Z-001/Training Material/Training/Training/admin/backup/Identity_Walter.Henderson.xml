@@ -1,0 +1,228 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity assignedRoleSummary="PRISM Manager, Region.Europe" assignedScopePath="ff80808147cb128c0147cc16f2bd017d" bundleSummary="PRISM User-IT, PRISM Super-IT, PRISM Manager-IT" correlated="true"   lastLogin="1405874536393"  managerStatus="true"  name="Walter.Henderson" password="1:JlrOP/UBonF7u1wXAXVWgw==">
+  <Attributes>
+    <Map>
+      <entry key="costcenter">
+        <value>
+          <List>
+            <String>R01e</String>
+            <String>L01</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="department" value="Information Technology"/>
+      <entry key="displayName" value="Walter.Henderson"/>
+      <entry key="email" value="Walter.Henderson@demoexample.com"/>
+      <entry key="empId" value="1b2a3a"/>
+      <entry key="firstname" value="Walter"/>
+      <entry key="jobtitle" value="Security Architect"/>
+      <entry key="lastname" value="Henderson"/>
+      <entry key="location" value="Brussels"/>
+      <entry key="region" value="Europe"/>
+      <entry key="status" value="Employee"/>
+    </Map>
+  </Attributes>
+  <AssignedRoles>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM Manager"/>
+    <Reference class="sailpoint.object.Bundle"  name="Region.Europe"/>
+  </AssignedRoles>
+  <AssignedScope>
+    <Reference class="sailpoint.object.Scope"  name="Europe"/>
+  </AssignedScope>
+  <AttributeMetaDatas>
+    <AttributeMetaData attribute="email" source="HR System - Employees:email"/>
+    <AttributeMetaData attribute="firstname" source="HR System - Employees:firstName"/>
+    <AttributeMetaData attribute="lastname" source="HR System - Employees:lastName"/>
+    <AttributeMetaData attribute="inactive" source="HR System - Employees:inactiveIdentity"/>
+    <AttributeMetaData attribute="displayName" source="HR System - Employees:fullName"/>
+    <AttributeMetaData attribute="empId" source="HR System - Employees:employeeId"/>
+    <AttributeMetaData attribute="location" source="HR System - Employees:location"/>
+    <AttributeMetaData attribute="region" source="HR System - Employees:region"/>
+    <AttributeMetaData attribute="jobtitle" source="HR System - Employees:jobtitle"/>
+    <AttributeMetaData attribute="costcenter" source="HR System - Employees:costcenter"/>
+    <AttributeMetaData attribute="status" source="HR System - Employees:AppRule: Identity Attribute: Employees HR System - Employees$Identity Attribute: Employees"/>
+    <AttributeMetaData attribute="department" source="HR System - Employees:department"/>
+    <AttributeMetaData attribute="manager" source="HR System - Employees:managerId"/>
+  </AttributeMetaDatas>
+  <Bundles>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM User-IT"/>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM Super-IT"/>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM Manager-IT"/>
+  </Bundles>
+  <Exceptions>
+    <EntitlementGroup  displayName="Walter.Henderson"  nativeIdentity="Walter.Henderson">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="capability">
+            <value>
+              <List>
+                <String>reject</String>
+              </List>
+            </value>
+          </entry>
+        </Map>
+      </Attributes>
+    </EntitlementGroup>
+  </Exceptions>
+  <Manager>
+    <Reference class="sailpoint.object.Identity"  name="Debra.Wood"/>
+  </Manager>
+  <Preferences>
+    <Map>
+      <entry key="roleAssignments">
+        <value>
+          <List>
+            <RoleAssignment date="1405874056655"  name="PRISM Manager" source="Rule"/>
+            <RoleAssignment date="1405874022778"  name="Region.Europe" source="Rule"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="roleDetections">
+        <value>
+          <List>
+            <RoleDetection  name="PRISM Super-IT">
+              <IdentityItem application="PRISM" name="groups" value="Super"/>
+            </RoleDetection>
+            <RoleDetection  name="PRISM Manager-IT">
+              <IdentityItem application="PRISM" name="groups" value="Manager"/>
+            </RoleDetection>
+            <RoleDetection  name="PRISM User-IT">
+              <IdentityItem application="PRISM" name="groups" value="User"/>
+            </RoleDetection>
+          </List>
+        </value>
+      </entry>
+    </Map>
+  </Preferences>
+  <Workgroups>
+    <Reference class="sailpoint.object.Identity"  name="PAM Administrators"/>
+  </Workgroups>
+  <Links>
+    <Link  displayName="Walter.Henderson"    identity="1b2a3a">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="costcenter">
+            <value>
+              <List>
+                <String>R01e</String>
+                <String>L01</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="department" value="Information Technology"/>
+          <entry key="email" value="Walter.Henderson@demoexample.com"/>
+          <entry key="employeeId" value="1b2a3a"/>
+          <entry key="firstName" value="Walter"/>
+          <entry key="fullName" value="Walter.Henderson"/>
+          <entry key="inactiveIdentity" value="FALSE"/>
+          <entry key="jobtitle" value="Security Architect"/>
+          <entry key="lastName" value="Henderson"/>
+          <entry key="location" value="Brussels"/>
+          <entry key="managerId" value="1b2a"/>
+          <entry key="region" value="Europe"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link  displayName="Walter.Henderson"    identity="cn=Walter.Henderson,ou=people,dc=training,dc=sailpoint,dc=com">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="LDAP"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="cn" value="Walter.Henderson"/>
+          <entry key="mail" value="Walter.Henderson@demoexample.com"/>
+          <entry key="objectClass">
+            <value>
+              <List>
+                <String>person</String>
+                <String>organizationalPerson</String>
+                <String>inetOrgPerson</String>
+                <String>top</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="sn" value="Henderson"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link  displayName="whenderson" entitlements="true"    identity="whenderson">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="PRISM"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="IIQDisabled">
+            <value>
+              <Boolean></Boolean>
+            </value>
+          </entry>
+          <entry key="IIQLocked">
+            <value>
+              <Boolean>true</Boolean>
+            </value>
+          </entry>
+          <entry key="first" value="Walter"/>
+          <entry key="groups">
+            <value>
+              <List>
+                <String>User</String>
+                <String>Manager</String>
+                <String>Super</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="inactive">
+            <value>
+              <Boolean></Boolean>
+            </value>
+          </entry>
+          <entry key="last" value="Henderson"/>
+          <entry key="lastLogin" value="1/1/12 0:0:0 AM CST"/>
+          <entry key="locked" value="Y"/>
+          <entry key="login" value="whenderson"/>
+          <entry key="privileged">
+            <value>
+              <Boolean>true</Boolean>
+            </value>
+          </entry>
+          <entry key="status" value="A"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link  displayName="Walter.Henderson" entitlements="true"    identity="Walter.Henderson">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="capability">
+            <value>
+              <List>
+                <String>reject</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="email" value="Walter.Henderson@demoexample.com"/>
+          <entry key="firstname" value="Walter"/>
+          <entry key="id" value="1b2a3a"/>
+          <entry key="lastname" value="Henderson"/>
+          <entry key="username" value="Walter.Henderson"/>
+        </Map>
+      </Attributes>
+    </Link>
+  </Links>
+  <Scorecard certificationScore="1000" compositeScore="500"  entitlementScore="1"  rawEntitlementScore="1">
+    <ScoreItem compositePercentage="100" score="1000" scorePercentage="100" type="score_def_certificationAge_shortname">
+      <TargetMessage>
+        <Message key="cert_scorer_target_id_not_certified" type="Info"/>
+      </TargetMessage>
+    </ScoreItem>
+  </Scorecard>
+</Identity>

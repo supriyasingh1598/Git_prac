@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Policy PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Policy certificationActions="Remediated,Mitigated,Delegated" configPage="entitlementPolicy.xhtml"  executor="sailpoint.policy.EntitlementSODPolicyExecutor"  name="TRAKK SOD Policy" state="Active" type="EntitlementSOD" typeKey="policy_type_entitlement_sod" violationOwnerType="Rule">
+  <PolicyAlert escalationStyle="none">
+    <NotificationEmailTemplateRef>
+      <Reference class="sailpoint.object.EmailTemplate"  name="Policy Violation"/>
+    </NotificationEmailTemplateRef>
+    <Owners>
+      <Reference class="sailpoint.object.Identity"  name="Aaron.Nichols"/>
+    </Owners>
+  </PolicyAlert>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <GenericConstraints>
+    <GenericConstraint   name="Cannot be Super and Input at the same time" violationOwnerType="None" weight="300">
+      <IdentitySelector>
+        <MatchExpression>
+          <MatchTerm name="capability" value="super">
+            <ApplicationRef>
+              <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+            </ApplicationRef>
+          </MatchTerm>
+        </MatchExpression>
+      </IdentitySelector>
+      <IdentitySelector>
+        <MatchExpression>
+          <MatchTerm name="capability" value="input">
+            <ApplicationRef>
+              <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+            </ApplicationRef>
+          </MatchTerm>
+        </MatchExpression>
+      </IdentitySelector>
+    </GenericConstraint>
+  </GenericConstraints>
+</Policy>

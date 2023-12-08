@@ -1,0 +1,164 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity assignedRoleSummary="Region.Europe" assignedScopePath="ff80808147cb128c0147cc16f2bd017d" bundleSummary="TRAKK - Basic" correlated="true"   lastLogin="1415288410335"   name="Ryan.Russell" password="1:JlrOP/UBonF7u1wXAXVWgw==">
+  <Attributes>
+    <Map>
+      <entry key="costcenter">
+        <value>
+          <List>
+            <String>R01e</String>
+            <String>L01e</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="department" value="Information Technology"/>
+      <entry key="displayName" value="Ryan.Russell"/>
+      <entry key="email" value="Ryan.Russell@demoexample.com"/>
+      <entry key="empId" value="1b2a3a4e"/>
+      <entry key="firstname" value="Ryan"/>
+      <entry key="jobtitle" value="Security Architect"/>
+      <entry key="lastname" value="Russell"/>
+      <entry key="location" value="Brussels"/>
+      <entry key="region" value="Europe"/>
+      <entry key="status" value="Employee"/>
+    </Map>
+  </Attributes>
+  <UIPreferencesRef>
+    <Reference class="sailpoint.object.UIPreferences" />
+  </UIPreferencesRef>
+  <AssignedRoles>
+    <Reference class="sailpoint.object.Bundle"  name="Region.Europe"/>
+  </AssignedRoles>
+  <AssignedScope>
+    <Reference class="sailpoint.object.Scope"  name="Europe"/>
+  </AssignedScope>
+  <AttributeMetaDatas>
+    <AttributeMetaData attribute="email" source="HR System - Employees:email"/>
+    <AttributeMetaData attribute="firstname" source="HR System - Employees:firstName"/>
+    <AttributeMetaData attribute="lastname" source="HR System - Employees:lastName"/>
+    <AttributeMetaData attribute="inactive" source="HR System - Employees:inactiveIdentity"/>
+    <AttributeMetaData attribute="displayName" source="HR System - Employees:fullName"/>
+    <AttributeMetaData attribute="empId" source="HR System - Employees:employeeId"/>
+    <AttributeMetaData attribute="location" source="HR System - Employees:location"/>
+    <AttributeMetaData attribute="region" source="HR System - Employees:region"/>
+    <AttributeMetaData attribute="jobtitle" source="HR System - Employees:jobtitle"/>
+    <AttributeMetaData attribute="costcenter" source="HR System - Employees:costcenter"/>
+    <AttributeMetaData attribute="status" source="HR System - Employees:AppRule: Identity Attribute: Employees HR System - Employees$Identity Attribute: Employees"/>
+    <AttributeMetaData attribute="department" source="HR System - Employees:department"/>
+    <AttributeMetaData attribute="manager" source="HR System - Employees:managerId"/>
+  </AttributeMetaDatas>
+  <Bundles>
+    <Reference class="sailpoint.object.Bundle"  name="TRAKK - Basic"/>
+  </Bundles>
+  <Capabilities>
+    <Reference class="sailpoint.object.Capability"  name="SystemAdministrator"/>
+  </Capabilities>
+  <ControlledScopes>
+    <Reference class="sailpoint.object.Scope"  name="Americas"/>
+    <Reference class="sailpoint.object.Scope"  name="Asia-Pacific"/>
+    <Reference class="sailpoint.object.Scope"  name="Europe"/>
+  </ControlledScopes>
+  <Manager>
+    <Reference class="sailpoint.object.Identity"  name="Walter.Henderson"/>
+  </Manager>
+  <Preferences>
+    <Map>
+      <entry key="roleAssignments">
+        <value>
+          <List>
+            <RoleAssignment date="1405874044180"  name="Region.Europe" source="Rule"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="roleDetections">
+        <value>
+          <List>
+            <RoleDetection  name="TRAKK - Basic">
+              <IdentityItem application="TRAKK" name="capability" value="input"/>
+            </RoleDetection>
+          </List>
+        </value>
+      </entry>
+    </Map>
+  </Preferences>
+  <Links>
+    <Link  displayName="Ryan.Russell"    identity="1b2a3a4e">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="HR System - Employees"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="costcenter">
+            <value>
+              <List>
+                <String>R01e</String>
+                <String>L01e</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="department" value="Information Technology"/>
+          <entry key="email" value="Ryan.Russell@demoexample.com"/>
+          <entry key="employeeId" value="1b2a3a4e"/>
+          <entry key="firstName" value="Ryan"/>
+          <entry key="fullName" value="Ryan.Russell"/>
+          <entry key="inactiveIdentity" value="FALSE"/>
+          <entry key="jobtitle" value="Security Architect"/>
+          <entry key="lastName" value="Russell"/>
+          <entry key="location" value="Brussels"/>
+          <entry key="managerId" value="1b2a3a"/>
+          <entry key="region" value="Europe"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link  displayName="Ryan.Russell"    identity="cn=Ryan.Russell,ou=people,dc=training,dc=sailpoint,dc=com">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="LDAP"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="cn" value="Ryan.Russell"/>
+          <entry key="mail" value="Ryan.Russell@demoexample.com"/>
+          <entry key="objectClass">
+            <value>
+              <List>
+                <String>person</String>
+                <String>organizationalPerson</String>
+                <String>inetOrgPerson</String>
+                <String>top</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="sn" value="Russell"/>
+        </Map>
+      </Attributes>
+    </Link>
+    <Link  displayName="Ryan.Russell" entitlements="true"    identity="Ryan.Russell">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+      </ApplicationRef>
+      <Attributes>
+        <Map>
+          <entry key="capability">
+            <value>
+              <List>
+                <String>input</String>
+              </List>
+            </value>
+          </entry>
+          <entry key="email" value="Ryan.Russell@demoexample.com"/>
+          <entry key="firstname" value="Ryan"/>
+          <entry key="id" value="1b2a3a4e"/>
+          <entry key="lastname" value="Russell"/>
+          <entry key="username" value="Ryan.Russell"/>
+        </Map>
+      </Attributes>
+    </Link>
+  </Links>
+  <Scorecard certificationScore="1000" compositeScore="500"  >
+    <ScoreItem compositePercentage="100" score="1000" scorePercentage="100" type="score_def_certificationAge_shortname">
+      <TargetMessage>
+        <Message key="cert_scorer_target_id_not_certified" type="Info"/>
+      </TargetMessage>
+    </ScoreItem>
+  </Scorecard>
+</Identity>

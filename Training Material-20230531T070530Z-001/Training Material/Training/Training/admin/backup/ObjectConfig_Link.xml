@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ObjectConfig PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ObjectConfig    name="Link">
+  <ObjectAttribute displayName="Service Account" editMode="ReadOnly" extendedNumber="2" name="service" type="boolean">
+    <AttributeSource name="app2_service">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Financials"/>
+      </ApplicationRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="Inactive Account" editMode="ReadOnly" extendedNumber="3" name="inactive" type="boolean">
+    <AttributeSource name="app2_inactive">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Financials"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="AppRule: Link Attribute - PRISM Inactive PRISM">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="PRISM"/>
+      </ApplicationRef>
+      <RuleRef>
+        <Reference class="sailpoint.object.Rule"  name="Link Attribute - PRISM Inactive"/>
+      </RuleRef>
+    </AttributeSource>
+  </ObjectAttribute>
+  <ObjectAttribute displayName="Privileged Account" editMode="ReadOnly" extendedNumber="1" name="privileged" type="boolean">
+    <AttributeSource name="app2_privileged">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="Financials"/>
+      </ApplicationRef>
+    </AttributeSource>
+    <AttributeSource name="AppRule: Link Attribute - PRISM Privileged PRISM">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="PRISM"/>
+      </ApplicationRef>
+      <RuleRef>
+        <Reference class="sailpoint.object.Rule"  name="Link Attribute - PRISM Privileged"/>
+      </RuleRef>
+    </AttributeSource>
+    <AttributeSource name="AppRule: Link Attribute - PAM Privileged PAM">
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="PAM"/>
+      </ApplicationRef>
+      <RuleRef>
+        <Reference class="sailpoint.object.Rule"  name="Link Attribute - PAM Privileged"/>
+      </RuleRef>
+    </AttributeSource>
+  </ObjectAttribute>
+</ObjectConfig>

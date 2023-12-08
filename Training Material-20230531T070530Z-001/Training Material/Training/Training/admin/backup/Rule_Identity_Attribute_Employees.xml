@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell"  name="Identity Attribute: Employees" type="IdentityAttribute">
+  <Description>Identity attribute rules are used in conditions where we don't have a one-to-one mapping between attribute and value and where multiple attributes might have to be used to define the value of an identity attribute.
+
+A global rule is called for each identity that is processed. A global rule can use the Identity's Link objects to get at the tribute values necessary to derive the identity attribute value.
+
+In this example the rule checks two account attributes to derive the value. First check with the hr app's job code then check the ad account's description field.</Description>
+  <Signature returnType="String"/>
+  <Source>return "Employee";</Source>
+</Rule>

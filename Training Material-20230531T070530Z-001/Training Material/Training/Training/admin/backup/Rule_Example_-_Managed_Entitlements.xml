@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Example - Managed Entitlements">
+  <Description>Example Rule - Managed Entitlements</Description>
+  <Source>
+
+
+    import java.util.List;
+    import java.util.Iterator;
+    import sailpoint.api.*;
+    import sailpoint.object.*;
+		
+		
+try {
+
+		
+//
+// Here, you can do whatever magic you want. In this case, we are creating a list of all un-managed attributes.  
+//
+
+        QueryOptions qo = new QueryOptions();
+        
+        
+        
+        Iterator result = context.search(ManagedAttribute.class, qo);
+        while (result.hasNext()) {
+			ManagedAttribute ma = (ManagedAttribute)result.next();
+			System.out.println("Application: " + ma.getApplication().getName() + " -- Value: " + ma.getValue());
+		}
+		
+				
+		} catch (Exception e) {
+			//Catch exception if any
+			System.err.println("Error: " + e.getMessage());
+		}
+
+
+ 
+  
+  </Source>
+</Rule>

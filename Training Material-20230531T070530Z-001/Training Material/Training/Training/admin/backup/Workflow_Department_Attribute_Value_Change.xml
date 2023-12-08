@@ -1,0 +1,161 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Workflow PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Workflow  explicitTransitions="true"   name="Department Attribute Value Change" type="IdentityEvent">
+  <Variable input="true" name="event"/>
+  <Variable input="true" name="trigger"/>
+  <Variable initializer="string:true" input="true" name="trace"/>
+  <Variable initializer="script:event.getIdentityFullName();" input="true" name="identityDisplayName"/>
+  <Variable initializer="script:event.getCause();" input="true" name="attribute_cause"/>
+  <Description>Business process that will run when a department change occurs</Description>
+  <Step icon="Start" name="Start">
+    <Transition to="Debug Step"/>
+  </Step>
+  <Step icon="Default" name="Debug Step" posX="218" posY="42">
+    <Script>
+      <Source>//
+// Print out start of Debug Step
+//
+
+System.out.println("\n\n\n=======================\nDebug Step - Start");
+
+//
+// Print the requester of the attribute change (launcher variable)
+//
+System.out.println("Requester = " + launcher);
+
+//
+// There are a number of workflow variables available. One is called step
+// which includes information about the current step in the workflow. 
+//
+
+if (step != null) {
+System.out.println("Step Name = " + step.getName());
+}
+
+//
+// for IdentityChange workflows, we get an event object which includes 
+// the original and new object and other information. 
+//
+
+if (event != null) {
+      System.out.println("event.getCause() = " + event.getCause());
+      System.out.println("event.getIdentityName() = " + event.getIdentityName());
+
+}
+
+//
+// the trigger object includes 
+//
+
+if (trigger != null) {
+      System.out.println("trigger.getAttributeName() = " + trigger.getAttributeName());
+} 
+
+//
+// We are done... print message that step is ending. 
+//
+System.out.println("Debug Step - End\n=======================\n\n");</Source>
+    </Script>
+    <Transition to="Send Email" when="script:event.getObject().getAttribute(&quot;department&quot;).equals(&quot;IT Management&quot;)"/>
+    <Transition to="Create Certification" when="!script:event.getObject().getAttribute(&quot;department&quot;).equals(&quot;IT Management&quot;)"/>
+  </Step>
+  <Step action="call:sendEmail" icon="Default" name="Send Email" posX="397" posY="189">
+    <Arg name="template" value="string:Training Workflow Email Template"/>
+    <Arg name="to" value="script:getEmail(identityName)"/>
+    <Arg name="cc" value="script:getEmail(launcher)"/>
+    <Transition to="Create Certification"/>
+  </Step>
+  <Step icon="Default" name="Create Certification" posX="581" posY="43">
+    <Script>
+      <Source>import java.util.List;
+import java.util.ArrayList;
+import sailpoint.object.Identity;
+import sailpoint.api.CertificationScheduler;
+import sailpoint.object.CertificationSchedule;
+import sailpoint.object.CertificationDefinition;
+import sailpoint.object.TaskSchedule;
+import sailpoint.object.Certification;
+import sailpoint.api.Correlator; 
+import sailpoint.task.CertificationExecutor.CertifierSelectionType;
+
+//
+// requestor = user who made the request
+// identity = user to be certified
+//
+	  
+Identity requestor = context.getObject(Identity.class, launcher);	 
+System.out.println("Change requested by " + requestor.getName()); 
+Identity identity = context.getObject(Identity.class, event.getIdentityName());
+System.out.println("Building certification for " + identity.getName());
+
+//
+// Identities to certify: 
+//
+
+List identities = new ArrayList();
+identities.add(identity.getName());
+
+//
+// Certification Group Owner
+//
+
+Identity certGroupOwner = context.getObjectByName(Identity.class, "spadmin");
+
+//
+// Get department user is moving to
+//
+String department = event.getObject().getAttribute("department");
+
+// 
+// Set sertifier based on department
+//
+Correlator correlator = new Correlator(context); 
+Identity certifier = null;
+
+if ( department != null &amp;&amp; department.equals("IT Management") ) {   
+   certifier = correlator.findIdentityByAttribute("name", "Mary.Johnson"); 
+} else {
+   certifier = correlator.findIdentityByAttribute("name", "spadmin"); 
+}
+System.out.println("Certification will be done by " + certifier.getName());
+
+//
+// Schedule Certification
+//
+// Create new Scheduler object
+// 
+
+CertificationScheduler scheduler = new CertificationScheduler(context);
+
+//
+// Create schedule and set to run now...
+//
+CertificationSchedule schedule = scheduler.initializeScheduleBean(requestor, Certification.Type.Identity);
+schedule.setRunNow(true);
+
+//
+// Configure Certification Definition
+//
+
+CertificationDefinition definition = schedule.getDefinition();
+definition.setCertifierSelectionType(CertificationDefinition.CertifierSelectionType.Manual);
+definition.setProcessRevokesImmediately(true);
+
+definition.setNameTemplate("Department Transfer for " + identity.getDisplayName() + ": assigned to " + certifier.getDisplayName());
+definition.setShortNameTemplate("Dept xfer for " + identity.getDisplayName());
+definition.setName("Department Transfer : " + identity.getDisplayName() + " [" + new Date().toString() + "]");
+definition.setIdentitiesToCertify(identities);
+definition.setCertifierName(certifier.getName());
+definition.setCertificationOwner(certGroupOwner);
+definition.setCertificationNameTemplate("Department Transfer: " + identity.getDisplayName());
+
+//
+// Schedule task to run, passing in schedule (which has certficiaton defintion attached)
+//
+
+TaskSchedule taskSchedule = scheduler.saveSchedule(schedule, false);</Source>
+    </Script>
+    <Transition to="Stop"/>
+  </Step>
+  <Step icon="Stop" name="Stop" posX="767" posY="38"/>
+</Workflow>

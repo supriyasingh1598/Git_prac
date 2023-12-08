@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Example - Walk Identities">
+  <Description>Example Rule - Identity Description</Description>
+  <Source>
+
+    import java.util.List;
+    import java.util.Iterator;
+    import sailpoint.object.*;
+
+    String delimiter = "|";
+
+
+  Identity user = context.getObjectByName(Identity.class,"Aaron.Nichols");
+
+  System.out.println("\n\n\nIdentity Info for Aaron.Nichols");
+  System.out.println("========================");
+  System.out.println("Email Address = " + user.getEmail());
+  System.out.println("Status = " + user.getAttribute("status"));
+  System.out.println("Location = " + user.getAttribute("location"));
+  System.out.println("Region = " + user.getAttribute("region"));
+
+System.out.println("\nListing of Accounts");
+
+  List Links= (List) user.getLinks();
+
+ if (null != Links) {
+        Iterator linkIterator = Links.iterator();
+        while (linkIterator.hasNext()) {
+            Link account = (Link) linkIterator.next();
+            System.out.println("Application Name = " + account.getApplicationName() + ";Account Name = " + account.getDisplayableName());
+    }
+}
+
+
+
+
+  System.out.println("\nListing of Detected Roles");
+
+  List Bundles = (List) user.getBundles();
+
+ if (null != Bundles) {
+        Iterator bundleIterator = Bundles.iterator();
+        while (bundleIterator.hasNext()) {
+            Bundle role = (Bundle) bundleIterator.next();
+            System.out.println("Role Name = " + role.getFullName() + ";Role Type = " + role.getType());
+    }
+}
+
+ System.out.println("\nListing of Assigned Roles");
+
+ Bundles = (List) user.getAssignedRoles();
+
+ if (null != Bundles) {
+        Iterator bundleIterator = Bundles.iterator();
+        while (bundleIterator.hasNext()) {
+            Bundle role = (Bundle) bundleIterator.next();
+            System.out.println("Role Name = " + role.getFullName() + ";Role Type = " + role.getType());
+    }
+}
+
+  
+  </Source>
+</Rule>

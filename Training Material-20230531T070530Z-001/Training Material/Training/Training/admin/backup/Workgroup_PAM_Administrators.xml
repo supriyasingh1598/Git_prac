@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity    name="PAM Administrators" workgroup="true">
+  <Attributes>
+    <Map>
+      <entry key="displayName" value="PAM Administrators"/>
+      <entry key="email" value="PAM_Admin@test.com"/>
+    </Map>
+  </Attributes>
+  <Capabilities>
+    <Reference class="sailpoint.object.Capability"  name="ApplicationAdministrator"/>
+  </Capabilities>
+  <Description>Team responsible for PAM access.</Description>
+  <Preferences>
+    <Map>
+      <entry key="workgroupNotificationOption">
+        <value>
+          <WorkgroupNotifationOption>GroupEmailOnly</WorkgroupNotifationOption>
+        </value>
+      </entry>
+    </Map>
+  </Preferences>
+</Identity>

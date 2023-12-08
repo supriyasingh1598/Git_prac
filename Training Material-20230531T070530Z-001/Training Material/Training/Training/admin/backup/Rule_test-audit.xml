@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="test-audit">
+  <Description>Test Rule.</Description>
+  <Source>
+
+import sailpoint.server.Auditor;
+
+  
+            Auditor.logAs("foo", "didsomething", "Aaron.Nichols", 
+                          "string1", "string2", "string3", "string4");           
+                context.commitTransaction();
+
+
+</Source>
+</Rule>

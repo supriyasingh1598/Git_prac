@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell"  name="test">
+  <Description>Test Rule.</Description>
+  <Source>import java.util.List;
+print("Beanshell namespace:");
+    for (int i = 0 ; i &amp;lt; this.variables.length() ; i++)  {
+       String name = this.variables[i];
+       Object value = eval(name);
+       if (value == void)
+           print(name + " = void");
+       else if (value == null)
+           print(name + " = null");
+       else
+           print(name + ": " + value.getClass().getSimpleName() + " = " + value);
+    }
+
+</Source>
+</Rule>

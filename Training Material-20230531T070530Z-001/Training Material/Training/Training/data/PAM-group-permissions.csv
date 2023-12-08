@@ -1,0 +1,6 @@
+Database Name,Report Date,Permission Group,Permission Rights,Description
+TEST01,20140811,ACCOUNTING,DR System:YY-Function Control:NN-BackupControl:YY,Accounting Group for PAM
+TEST01,20140811,IT,DR System:YY-Function Control:NN-BackupControl:YY,IT Group for PAM
+TEST01,20140811,HR,DR System:YY-Function Control:NN-BackupControl:YY,HR Group for PAM
+TEST01,20140811,FINANCE,DR System:YY-Function Control:NN-BackupControl:YY,Finance Group for PAM
+TEST01,20140811,ADMINISTRATORS,DR System:YY-Function Control:NN-BackupControl:YY," ""Administrators Group for PAM"""

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Example - Audit">
+  <Description>Example Rule - Audit Something</Description>
+  <Source>
+
+import sailpoint.server.Auditor;
+
+boolean result = Auditor.logAs("spadmin", "didsomething", "foo", "one", "two", "three","four");
+  
+  try {
+                context.commitTransaction();
+            }
+            catch (Throwable t) {
+            log.error(t);
+}
+
+return result;
+
+  </Source>
+</Rule>

@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Profile PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Profile    name="TRAKK-manager">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application"  name="PRISM"/>
+  </ApplicationRef>
+  <Constraints>
+    <Filter operation="CONTAINS_ALL" property="groups">
+      <Value>
+        <List>
+          <String>Manager</String>
+        </List>
+      </Value>
+    </Filter>
+  </Constraints>
+</Profile>

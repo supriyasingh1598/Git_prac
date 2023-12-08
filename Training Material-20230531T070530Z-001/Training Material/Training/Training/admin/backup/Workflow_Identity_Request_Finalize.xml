@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Workflow PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Workflow   libraries="Identity,IdentityRequest" name="Identity Request Finalize" type="Subprocess">
+  <Variable name="project">
+    <Description>
+      ProvisioningProject which is just a compiled version of the ProvisioningPlan.
+      From the project the IdentityRequestItem model will be updated.
+    </Description>
+  </Variable>
+  <Variable input="true" name="identityRequestId" output="true">
+    <Description>
+       The ID ot the identitytRequestId.
+      
+       This step will update the identityRequest status and completion
+       status.
+    </Description>
+  </Variable>
+  <Variable input="true" name="approvalSet">
+    <Description>
+       This attributes is set during the "Build Approval Set" step,
+       which builds this list by going through the ProvisioningPlan
+       to build the line items that need to be approved,
+
+       This variable includes all ApprovalItems that are part of 
+       the request process and is updated during the AfterScript
+       of the approval process by assimilating the decisions 
+       and comments from the Approvals copy of the ApprovalItem.
+    </Description>
+  </Variable>
+  <Variable input="true" name="trace">
+    <Description>
+      Used for debugging this subprocess and when set to true trace
+      statements will be sent to stdout.
+    </Description>
+  </Variable>
+  <Variable name="autoVerifyIdentityRequest">
+    <Description>
+      Flag to indicate when finishing the request we should
+      automatically mark it verified. Currently used by
+      the change password workflow so we don't wait to 
+      verify since passwords can't be verifed. 
+    </Description>
+  </Variable>
+  <Step icon="Start" name="Start">
+    <Transition to="Audit Completion"/>
+  </Step>
+  <Step action="call:auditLCMCompletion" icon="Audit" name="Audit Completion">
+    <Arg name="approvalSet" value="ref:approvalSet"/>
+    <Transition to="Complete Identity Request"/>
+  </Step>
+  <Step action="completeIdentityRequest" icon="Task" name="Complete Identity Request" resultVariable="identityRequest">
+    <Arg name="project" value="ref:project"/>
+    <Arg name="approvalSet" value="ref:approvalSet"/>
+    <Arg name="autoVerify" value="$(autoVerifyIdentityRequest)"/>
+    <Arg name="identityRequestId" value="ref:identityRequestId"/>
+    <Transition to="end"/>
+  </Step>
+  <Step icon="Stop" name="end"/>
+</Workflow>

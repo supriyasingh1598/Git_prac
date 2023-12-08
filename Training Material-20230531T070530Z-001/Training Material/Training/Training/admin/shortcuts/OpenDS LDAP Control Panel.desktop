@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=OpenDS LDAP Control Panel
+Type=Application
+Terminal=false
+Exec=/home/spadmin/OpenDS/bin/control-panel
+Name[en_US]=OpenDS LDAP Control Panel
+GenericName[en_US]=

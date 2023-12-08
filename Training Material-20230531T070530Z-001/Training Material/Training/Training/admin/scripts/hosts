@@ -1,0 +1,9 @@
+# Do not remove the following line, or various programs
+# that require network functionality will fail.
+#
+# Now added localhost to hosts file to support sitations where networking fails
+# for whatever reason
+#
+127.0.0.1	training.sailpoint.com training localhost
+::1		training6 training6.sailpoint.com localhost
+172.16.156.168	sailpoint.training.local

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Stop Tomcat
+Type=Application
+Terminal=false
+Name[en_US]=Stop Tomcat
+Exec=/home/spadmin/ProvisioningTraining/admin/scripts/ShutdownTomcat.sh
+GenericName[en_US]=

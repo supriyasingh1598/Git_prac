@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Example -  List Group Members">
+  <Source>
+
+		import java.util.List;
+		import java.util.Iterator;
+		import sailpoint.api.*;
+		import sailpoint.object.*;
+
+
+		//
+		//
+		// Find Group Members for ACCOUNTING (PAM)
+		//
+	
+String app = "PAM";
+String group = "ACCOUNTING";
+
+
+        QueryOptions qo = new QueryOptions();
+          qo.addFilter(Filter.eq("group",(Boolean)true));
+        Iterator maResult = context.search(ManagedAttribute.class, qo);
+		
+		
+		//
+		// Iterate through all the MAs  one at a time. 
+		//
+		
+		
+        while (maResult.hasNext()) {
+
+               ManagedAttribute ma = (ManagedAttribute)maResult.next();
+				
+	      System.out.println("==============================\nManaged Attribute Found:\nName = " + ma.getName()); 
+		
+              
+       }
+
+
+  </Source>
+</Rule>

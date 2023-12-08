@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE GroupFactory PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<GroupFactory  enabled="true" factoryAttribute="status"    name="Status">
+  <Description>Group used to define Employees and Contractors</Description>
+  <GroupOwnerRule>
+    <Reference class="sailpoint.object.Rule"  name="Group Owner - Highest Ranking Member of Sub-Group"/>
+  </GroupOwnerRule>
+</GroupFactory>

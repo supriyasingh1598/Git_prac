@@ -1,0 +1,4 @@
+Database Name,Report Date,Permission Group,Permission Rights,Description
+,,,,
+TEST01,20080211,ACCOUNTING,DR System:YY-Function Control:NN-BackupControl:YY,
+TEST01,20080211,FINANCE,DR System:YY-Function Control:NN-BackupControl:YY,

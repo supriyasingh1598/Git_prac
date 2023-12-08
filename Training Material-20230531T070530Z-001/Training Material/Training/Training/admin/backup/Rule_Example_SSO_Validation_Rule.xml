@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell"  name="Example SSO Validation Rule" type="SSOValidation">
+  <Description>
+    In this example, header values set by the authentication service are used to
+    find an Identity, thus validating the SSO request.
+    </Description>
+  <Source>
+      
+        import javax.servlet.http.HttpServletRequest;
+        import javax.servlet.http.HttpSession;
+      
+        private String getValueFromCookie(String cookie, String field) {
+            if (null != cookie) {
+                int tokenIndex = cookie.indexOf(field);
+                if (tokenIndex >= 0) {
+                    // if we found the attribute in the cookie
+                    int valueStartIndex = cookie.indexOf("=", tokenIndex);
+                    if (valueStartIndex >= 0) {
+                        int valueEndIndex = cookie.indexOf(";", valueStartIndex);
+                        if (valueEndIndex &lt; 0) {
+                            valueEndIndex = cookie.length();
+                        }
+                        String cookieValue = cookie.substring(valueStartIndex + 1, valueEndIndex);
+                        // System.out.println("Cookie field: [" + field + "] value: [" + cookieValue + "]");
+                        return cookieValue;
+                    }
+                }
+            }
+          
+            return null;
+        }
+        
+        /**
+          * For debug purposes.
+          */
+        private void dumpHeader() {
+            Enumeration headerNames = httpRequest.getHeaderNames();
+            if ( headerNames != null ) {
+                while ( headerNames.hasMoreElements() ) {
+                    String header = (String)headerNames.nextElement();
+                    String value = httpRequest.getHeader(header);
+                    System.out.println("HEADER["+header+"] VALUE["+ value+"]");
+                }
+            }
+        }
+      
+        // dumpHeader();
+        
+        String cookie = httpRequest.getHeader("Cookie");
+        String smSessionToken = getValueFromCookie(cookie, "SMSESSION");
+        HttpSession httpSession = httpRequest.getSession(false);
+        
+        // System.out.println("Siteminder session token: " + smSessionToken);
+        
+        // At this point you could use Siteminder's AgentAPI.decodeSSOToken()
+        // to validate the session.  If there was a problem, you could:
+        
+        // return "Couldn't validate session because there was a problem";
+        
+        // or if successful, just:
+        return null;
+      
+      
+    </Source>
+</Rule>

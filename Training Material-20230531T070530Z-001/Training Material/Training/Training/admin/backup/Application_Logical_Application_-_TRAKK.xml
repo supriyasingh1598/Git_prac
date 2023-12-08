@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Application connector="sailpoint.connector.DefaultLogicalConnector"  featuresString="COMPOSITE, DISCOVER_SCHEMA"   name="Logical Application - TRAKK" profileClass="" type="Logical">
+  <Attributes>
+    <Map>
+      <entry key="afterProvisioningRule"/>
+      <entry key="beforeProvisioningRule"/>
+      <entry key="compositeDefinition">
+        <value>
+          <CompositeDefinition primaryTier="TRAKK">
+            <Tiers>
+              <Tier application="TRAKK" correlationRule="">
+                <IdentitySelector>
+                  <MatchExpression>
+                    <MatchTerm name="capability" value="input">
+                      <ApplicationRef>
+                        <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+                      </ApplicationRef>
+                    </MatchTerm>
+                  </MatchExpression>
+                </IdentitySelector>
+              </Tier>
+            </Tiers>
+          </CompositeDefinition>
+        </value>
+      </entry>
+      <entry key="disableLinkFiltering">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="disableManagedEntitlementFiltering">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
+      <entry key="nativeChangeDetectionAttributes"/>
+      <entry key="nativeChangeDetectionEnabled">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionOperations"/>
+      <entry key="onDeleteRemoveEntitlements">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="templateApplication" value="Logical Template"/>
+    </Map>
+  </Attributes>
+  <Description>[{"locale":"en_US","displayName":"English (United States)","value":"A logical application that defines web-based access to the TRAKK Time Sheet application.&lt;br> "}]</Description>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Schemas>
+    <Schema  displayAttribute="username" groupAttribute=""  identityAttribute="id " instanceAttribute="" nativeObjectType="account" objectType="account">
+      <AttributeDefinition name="id" remediationModificationType="None" source="TRAKK.id" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="username" remediationModificationType="None" source="TRAKK.username" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="firstname" remediationModificationType="None" source="TRAKK.firstname" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="lastname" remediationModificationType="None" source="TRAKK.lastname" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="email" remediationModificationType="None" source="TRAKK.email" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="capability" remediationModificationType="None" source="TRAKK.capability" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="description" remediationModificationType="None" source="TRAKK.description" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+    </Schema>
+  </Schemas>
+</Application>

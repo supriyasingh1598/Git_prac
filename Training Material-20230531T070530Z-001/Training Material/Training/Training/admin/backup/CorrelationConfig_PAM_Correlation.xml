@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE CorrelationConfig PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<CorrelationConfig    name="PAM Correlation">
+  <AttributeAssignments>
+    <Filter operation="EQ" property="empId" value="User ID"/>
+  </AttributeAssignments>
+</CorrelationConfig>

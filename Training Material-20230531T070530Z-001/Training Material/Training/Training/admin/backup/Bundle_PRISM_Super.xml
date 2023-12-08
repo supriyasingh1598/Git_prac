@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Bundle PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Bundle    name="PRISM Super" type="business">
+  <Attributes>
+    <Map>
+      <entry key="approval_required">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="mergeTemplates" value="false"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="&#xA;"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="Walter.Henderson"/>
+  </Owner>
+  <Requirements>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM Super-IT"/>
+  </Requirements>
+  <Selector>
+    <IdentitySelector>
+      <MatchExpression and="true">
+        <MatchTerm name="groups" permission="true" value="Super">
+          <ApplicationRef>
+            <Reference class="sailpoint.object.Application"  name="PRISM"/>
+          </ApplicationRef>
+        </MatchTerm>
+      </MatchExpression>
+    </IdentitySelector>
+  </Selector>
+  <RoleScorecard    permittedEntitlements="2" provisionedEntitlements="2"/>
+</Bundle>

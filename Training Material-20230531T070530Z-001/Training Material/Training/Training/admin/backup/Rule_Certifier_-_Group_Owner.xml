@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Certifier - Group Owner" type="Certifier">
+  <Description>A rule used to assign certifiers to populations generated from a group factory.</Description>
+  <Signature returnType="Object">
+    <Inputs>
+      <Argument name="log">
+        <Description>
+          The log object associated with the SailPointContext.
+        </Description>
+      </Argument>
+      <Argument name="context">
+        <Description>
+          A sailpoint.api.SailPointContext object that can be used to query the database if necessary.
+        </Description>
+      </Argument>
+      <Argument name="factory">
+        <Description>
+          The GroupFactory that generated the populations.
+        </Description>
+      </Argument>
+      <Argument name="group">
+        <Description>
+          One GroupDefinition from the factory.
+        </Description>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="certifiers">
+        <Description>
+          A String, List&lt;String>, Identity, or a List&lt;Identity>.
+          When returning strings, the string must be the name or id
+          of an Identity.  When returning a single string, the string
+          may be formatted as a CSV of Identity names or ids.
+        </Description>
+      </Argument>
+    </Returns>
+  </Signature>
+  <Source>// Group Certifer Rule - If Group has an owner, return it.. otherwise return "spadmin". 
+
+if (group.getOwner() != null) {
+    return group.getOwner();
+} else { 
+   return "spadmin"; 
+}
+</Source>
+</Rule>

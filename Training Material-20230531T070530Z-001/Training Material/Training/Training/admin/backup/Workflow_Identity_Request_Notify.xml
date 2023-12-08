@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Workflow PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Workflow   name="Identity Request Notify" type="Subprocess">
+  <Variable input="true" name="identityName" required="true">
+    <Description>
+      The name of the identity object being modified.
+    </Description>
+  </Variable>
+  <Variable initializer="script:(identityDisplayName != void) ? identityDisplayName : resolveDisplayName(identityName)" input="true" name="identityDisplayName">
+    <Description>
+      The displayName of the identity being updated.
+      This may be passed in, if not the script queries for this
+      using a projection query and falls back to the name.
+    </Description>
+  </Variable>
+  <Variable initializer="user,requester" input="true" name="notificationScheme">
+    <Description>
+     A string that specifies who should be notified when the request has been complete.
+     The value can be null or a csv of one or more of the following options. 
+
+     none or null
+       disable notifications
+
+     user 
+       Identity that is being update will be notified.
+
+     manager
+       The manager of the Identity that is being updated will be notified.
+
+     requester
+       The person that has requested the update will be notified.
+    </Description>
+  </Variable>
+  <Variable input="true" name="policyViolations">
+    <Description> 
+       List of policy violations that were found during our initial policy scan.
+       This list is passed into each work item so the approvers can see 
+       pending violations.
+    </Description>
+  </Variable>
+  <Variable input="true" name="flow">
+    <Description>
+      The name of the LCM flow that launched this workflow.
+
+      This is one of these values:
+
+      AccountsRequest
+      EntitlementsRequest
+      RolesRequest
+      IdentityCreateRequest
+      IdentityEditRequest
+      ForgotPassword
+      ExpiredPassword
+      PasswordRequest
+
+    </Description>
+  </Variable>
+  <Variable input="true" name="trace">
+    <Description>
+      Used for debugging this subprocess and when set to true trace
+      statements will be sent to stdout.
+    </Description>
+  </Variable>
+  <Variable input="true" name="approvalSet">
+    <Description>
+       This attributes is set during the "Build Approval Set" step,
+       which builds this list by going through the ProvisioningPlan
+       to build the line items that need to be approved,
+
+       This variable includes all ApprovalItems that are part of 
+       the request process and is updated during the AfterScript
+       of the approval process by assimilating the decisions 
+       and comments from the Approvals copy of the ApprovalItem.
+    </Description>
+  </Variable>
+  <Variable initializer="LCM User Notification" input="true" name="userEmailTemplate">
+    <Description>
+       Name of the email template to use when notifying the user.
+    </Description>
+  </Variable>
+  <Variable initializer="LCM Manager Notification" input="true" name="managerEmailTemplate">
+    <Description>
+       Name of the email template to use when notifying the manager.
+    </Description>
+  </Variable>
+  <Variable initializer="LCM Requester Notification" input="true" name="requesterEmailTemplate">
+    <Description>
+       Name of the email template to use when notifying the requester.
+    </Description>
+  </Variable>
+  <Step icon="Start" name="Start">
+    <Transition to="Notify"/>
+  </Step>
+  <Step icon="Task" name="Notify">
+    <Transition to="Notify User" when="script:Util.csvToList(notificationScheme).contains(&quot;user&quot;)"/>
+    <Transition to="Notify Requester" when="script:Util.csvToList(notificationScheme).contains(&quot;requester&quot;)"/>
+    <Transition to="Notify Manager" when="script:Util.csvToList(notificationScheme).contains(&quot;manager&quot;)"/>
+    <Transition to="end"/>
+  </Step>
+  <Step action="call:sendEmail" icon="Email" name="Notify User">
+    <Arg name="template" value="ref:userEmailTemplate"/>
+    <Arg name="to" value="script:getEmail(identityName)"/>
+    <Transition to="Notify Requester" when="script:Util.csvToList(notificationScheme).contains(&quot;requester&quot;)"/>
+    <Transition to="Notify Manager" when="script:Util.csvToList(notificationScheme).contains(&quot;manager&quot;)"/>
+    <Transition to="end"/>
+  </Step>
+  <Step action="call:sendEmail" icon="Email" name="Notify Requester">
+    <Arg name="template" value="ref:requesterEmailTemplate"/>
+    <Arg name="to" value="script:getEmail(launcher)"/>
+    <Transition to="Notify Manager" when="script:Util.csvToList(notificationScheme).contains(&quot;manager&quot;)"/>
+    <Transition to="end"/>
+  </Step>
+  <Step action="call:sendEmail" icon="Email" name="Notify Manager">
+    <Arg name="template" value="ref:managerEmailTemplate"/>
+    <Arg name="to" value="script:getManagersEmail(identityName)"/>
+    <Transition to="end"/>
+  </Step>
+  <Step icon="Stop" name="end"/>
+</Workflow>

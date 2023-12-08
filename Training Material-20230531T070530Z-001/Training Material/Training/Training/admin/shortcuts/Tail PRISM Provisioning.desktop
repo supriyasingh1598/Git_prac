@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Tail PRISM Provisioning Log
+Type=Application
+Terminal=false
+Exec=/home/spadmin/ProvisioningTraining/admin/scripts/TailPRISM.sh
+Name[en_US]=Tail PRISM Provisioning Log
+GenericName[en_US]=

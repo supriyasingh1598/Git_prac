@@ -1,0 +1,9 @@
+
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+Terminal=false
+Exec=/home/spadmin/ProvisioningTraining/admin/scripts/TailTomcatLog.sh
+Name[en_US]=Tail Tomcat Standard Out
+Name=Tail Tomcat Standard Out

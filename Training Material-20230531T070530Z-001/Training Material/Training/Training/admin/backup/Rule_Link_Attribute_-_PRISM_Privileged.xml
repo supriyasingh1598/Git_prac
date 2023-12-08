@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell"  name="Link Attribute - PRISM Privileged" type="LinkAttribute">
+  <Description>This rule is used when promoting account attributes from Links during aggregation.</Description>
+  <Signature returnType="Object"/>
+  <Source>import java.util.Map;
+import sailpoint.tools.util;
+
+// The Link contains all the data we read in for the given account. Grab all the attributes so we can search through them
+
+Map attrs = link.getAttributes();
+
+// Get the "groups" attribute (this will contain one or more of Super, Manager, User)
+
+Object group = attrs.get("groups");
+     
+  if (group instanceof java.util.List) {
+ 
+       // check to see if the list contains "Super", if it does, we have a privileged acct, otherwise we don't
+       if (group.contains("Super")) {
+          System.out.println("True - PRISM Privileged Account");
+          return true; 
+      } else { 
+          System.out.println("False - PRISM Privileged Account"); 
+          return false; 
+      }
+}
+</Source>
+</Rule>

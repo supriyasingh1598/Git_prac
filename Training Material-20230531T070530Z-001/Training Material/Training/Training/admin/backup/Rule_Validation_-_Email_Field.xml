@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Validation - Email Field" type="Validation">
+  <Description>This rule is used to validate the Field values on a provisioning plan.</Description>
+  <Signature returnType="Object">
+    <Inputs>
+      <Argument name="log">
+        <Description>
+          The log object associated with the SailPointContext.
+        </Description>
+      </Argument>
+      <Argument name="context">
+        <Description>
+          A sailpoint.api.SailPointContext object that can be used to query the database if necessary.
+        </Description>
+      </Argument>
+      <Argument name="identity">
+        <Description>
+            The Identity object being provisioned.
+        </Description>
+      </Argument>
+      <Argument name="app">
+        <Description>
+            The Application object being processed.
+        </Description>
+      </Argument>
+      <Argument name="form">
+        <Description>
+            The Form object being processed.
+        </Description>
+      </Argument>
+      <Argument name="field">
+        <Description>
+            The Field object being validated.
+        </Description>
+      </Argument>
+      <Argument name="value">
+        <Description>
+            The Object representing the field value.
+        </Description>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="value">
+        <Description>
+          An Obect (possibly a Collection) of messages resulting from the
+          validation rule.
+        </Description>
+      </Argument>
+    </Returns>
+  </Signature>
+  <Source>import java.util.ArrayList; 
+
+
+ArrayList messages = new ArrayList();
+
+
+String inputVal = (String)value; 
+
+if (inputVal.indexOf("@") &lt; 0) { 
+    messages.add("Need an @ sign in a valid email.");  
+} 
+
+
+if (inputVal.indexOf(".") &lt; 0) { 
+    messages.add("Need an . in a valid email.");  
+} 
+
+return messages;</Source>
+</Rule>

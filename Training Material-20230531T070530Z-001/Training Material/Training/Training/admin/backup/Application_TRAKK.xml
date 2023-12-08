@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Application connector="sailpoint.connector.JDBCConnector"  featuresString="DISCOVER_SCHEMA, PROVISIONING" icon="databaseIcon"   name="TRAKK" profileClass="" type="JDBC">
+  <Attributes>
+    <Map>
+      <entry key="SQL" value="select * from users left outer join capabilities on users.id = capabilities.id order by users.username;"/>
+      <entry key="acctAggregationEnd">
+        <value>
+          <Date>1407878044405</Date>
+        </value>
+      </entry>
+      <entry key="acctAggregationStart">
+        <value>
+          <Date>1407877996361</Date>
+        </value>
+      </entry>
+      <entry key="afterProvisioningRule"/>
+      <entry key="beforeProvisioningRule"/>
+      <entry key="compositeDefinition"/>
+      <entry key="deltaAggregation"/>
+      <entry key="driverClass" value="com.mysql.jdbc.Driver"/>
+      <entry key="getObjectSQL" value="select * from users left outer join capabilities on users.id = capabilities.id where users.username = &apos;$(identity)&apos;;"/>
+      <entry key="group.indexColumns"/>
+      <entry key="group.mergeColumns"/>
+      <entry key="group.mergeRows">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.useExecuteQuery">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="indexColumns">
+        <value>
+          <List>
+            <String>id</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="mergeColumns">
+        <value>
+          <List>
+            <String>capability</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="mergeRows">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
+      <entry key="nativeChangeDetectionAttributes"/>
+      <entry key="nativeChangeDetectionEnabled">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionOperations"/>
+      <entry key="password" value="1:xDikd6BMwY+LL9iXETAjBg=="/>
+      <entry key="provisionRule" value="globalRule"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="[{&quot;isDefault&quot;:&quot;true&quot;,&quot;locale&quot;:&quot;en_US&quot;,&quot;value&quot;:&quot;The TRAKK Time Tracking Application&lt;br>&quot;,&quot;isCurrent&quot;:&quot;true&quot;,&quot;displayName&quot;:&quot;English (United States)&quot;}]"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="templateApplication" value="JDBC Template"/>
+      <entry key="url" value="jdbc:mysql://localhost/trakk"/>
+      <entry key="useExecuteQuery">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="user" value="root"/>
+    </Map>
+  </Attributes>
+  <CorrelationRule>
+    <Reference class="sailpoint.object.Rule"  name="Correlation Rule - TRAKK"/>
+  </CorrelationRule>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Schemas>
+    <Schema  displayAttribute="username" groupAttribute=""  identityAttribute="username" instanceAttribute="" nativeObjectType="account" objectType="account">
+      <AttributeDefinition name="id" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="username" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="firstname" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="lastname" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="email" remediationModificationType="None" type="string"/>
+      <AttributeDefinition entitlement="true" managed="true" multi="true" name="capability" remediationModificationType="None" type="string"/>
+      <AttributeDefinition name="description" remediationModificationType="None" type="string"/>
+    </Schema>
+  </Schemas>
+</Application>

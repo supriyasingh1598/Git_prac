@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Example -  Get object by ID">
+  <Source>
+
+		import java.util.List;
+		import java.util.Iterator;
+		import sailpoint.api.*;
+		import sailpoint.object.*;
+
+        QueryOptions qo = new QueryOptions();
+          qo.addFilter(Filter.eq("id","ff8080813b8535a9013b853762ff0168"));
+        Iterator result = context.search(SailPointObject.class, qo);
+		
+		
+		//
+		// Iterate . 
+		//
+		
+		
+        while (result.hasNext()) {
+
+               SailPointObject obj = (SailPointObject)result.next();
+				
+	     return ( obj.getName()); 
+		
+              
+       }
+
+  </Source>
+</Rule>

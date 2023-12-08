@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Example - Walk Certification">
+  <Source>
+
+		import java.util.List;
+		import java.util.Iterator;
+		import sailpoint.api.*;
+		import sailpoint.object.*;
+
+
+		//
+		//
+		// Find CertificationGroups
+		//
+	
+        QueryOptions qo = new QueryOptions();
+        Iterator certResult = context.search(CertificationGroup.class, qo);
+		
+		
+		//
+		// Iterate through all the Certification Groups  one at a time. 
+		//
+		
+		
+        while (certResult.hasNext()) {
+                CertificationGroup cg = (CertificationGroup)certResult.next();
+				
+			System.out.println("==============================\nCertification Group Found:\nName = " + cg.getName()); 
+		System.out.println("   Status = " + cg.getStatus());
+		System.out.println("   % Complete:" +  cg.getPercentComplete()); 
+ 		System.out.println("   Total Certs:" +  cg.getTotalCertifications());
+		System.out.println("   Completed Certs:" +  cg.getCompletedCertifications()); 
+		System.out.println("   Type:" +  cg.getType().toString()); 
+
+
+                QueryOptions ops = new QueryOptions();
+                ops.addFilter(Filter.eq("certificationGroups.id", cg.getId()));
+       
+                Iterator iterator = context.search(Certification.class, ops, "id");
+                while(iterator.hasNext()){
+                         String certId = (String)iterator.next()[0];
+                         Certification cert = context.getObjectById(Certification.class, certId);
+                         System.out.println("        => Access Review: " + cert.getName());
+                         System.out.println("             => % Complete " + cert.getPercentComplete());
+                         System.out.println("             => Phase: " + cert.getPhase().toString());
+                         System.out.println("             => Manager " + cert.getManager());
+
+                         Iterator entityIter = cert.getEntities().iterator();
+                         while (entityIter.hasNext()) {
+                                  CertificationEntity entity = (CertificationEntity)entityIter.next();
+                                  if (entity.getType() == CertificationEntity.Type.Identity) {
+                                         System.out.println("                          => Certified Identity Name:" + entity.getIdentity());
+                                  }
+
+                         }
+                         context.decache();
+                }
+       }
+
+
+  </Source>
+</Rule>

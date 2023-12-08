@@ -1,0 +1,13 @@
+run "Aggregate Employees and Contractors" sync
+run "Aggregate Financial Application" sync
+run "Aggregate LDAP" sync 
+run "Aggregate LDAP Groups" sync 
+run "Aggregate PAM Account Groups" sync 
+run "Aggregate PAM Application" sync 
+run "Aggregate PRISM" sync 
+run "Aggregate PRISM Groups" sync 
+run "Aggregate TRAKK Application" sync
+run "Refresh Identity Cube" sync
+run "Refresh Groups" sync 
+run "Refresh and Provision Roles" sync
+rule "Example - Set Passwords"

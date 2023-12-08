@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Policy PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Policy certificationActions="Mitigated,Delegated" configPage="advancedPolicy.xhtml"  executor="sailpoint.policy.GenericPolicyExecutor"   name="Last Login more than 180 days ago" state="Active" type="Advanced" typeKey="policy_type_advanced" violationOwnerType="Manager">
+  <PolicyAlert escalationStyle="none">
+    <NotificationEmailTemplateRef>
+      <Reference class="sailpoint.object.EmailTemplate"  name="Policy Violation"/>
+    </NotificationEmailTemplateRef>
+    <Owners>
+      <Reference class="sailpoint.object.Identity"  name="Aaron.Nichols"/>
+    </Owners>
+  </PolicyAlert>
+  <Attributes>
+    <Map>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="&lt;br>"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <GenericConstraints>
+    <GenericConstraint   name="Last Login > 180 Days" violationOwnerType="None" weight="100">
+      <IdentitySelector>
+        <RuleRef>
+          <Reference class="sailpoint.object.Rule"  name="Violation Rule - No login for last 180 days"/>
+        </RuleRef>
+      </IdentitySelector>
+    </GenericConstraint>
+  </GenericConstraints>
+</Policy>

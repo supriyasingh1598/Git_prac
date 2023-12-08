@@ -1,0 +1,379 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Bundle    name="PRISM Manager-IT" type="it">
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Profiles>
+    <Profile  >
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="PRISM"/>
+      </ApplicationRef>
+      <Constraints>
+        <Filter operation="CONTAINS_ALL" property="groups">
+          <Value>
+            <List>
+              <String>Manager</String>
+            </List>
+          </Value>
+        </Filter>
+      </Constraints>
+    </Profile>
+  </Profiles>
+</Bundle>
+<Bundle    name="PRISM Manager" type="business">
+  <Attributes>
+    <Map>
+      <entry key="approval_required">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="mergeTemplates" value="false"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="&#xA;"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="Walter.Henderson"/>
+  </Owner>
+  <Requirements>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM Manager-IT"/>
+  </Requirements>
+  <Selector>
+    <IdentitySelector>
+      <RuleRef>
+        <Reference class="sailpoint.object.Rule"  name="Role Assignment To Managers"/>
+      </RuleRef>
+    </IdentitySelector>
+  </Selector>
+</Bundle>
+<Bundle    name="PRISM Super-IT" type="it">
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Profiles>
+    <Profile  >
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="PRISM"/>
+      </ApplicationRef>
+      <Constraints>
+        <Filter operation="CONTAINS_ALL" property="groups">
+          <Value>
+            <List>
+              <String>Super</String>
+            </List>
+          </Value>
+        </Filter>
+      </Constraints>
+    </Profile>
+  </Profiles>
+</Bundle>
+<Bundle    name="PRISM Super" type="business">
+  <Attributes>
+    <Map>
+      <entry key="approval_required">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="mergeTemplates" value="false"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="&#xA;"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="Walter.Henderson"/>
+  </Owner>
+  <Requirements>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM Super-IT"/>
+  </Requirements>
+  <Selector>
+    <IdentitySelector>
+      <MatchExpression and="true">
+        <MatchTerm name="groups" permission="true" value="Super">
+          <ApplicationRef>
+            <Reference class="sailpoint.object.Application"  name="PRISM"/>
+          </ApplicationRef>
+        </MatchTerm>
+      </MatchExpression>
+    </IdentitySelector>
+  </Selector>
+  <RoleScorecard    permittedEntitlements="2" provisionedEntitlements="2"/>
+</Bundle>
+<Bundle    name="PRISM User-IT" type="it">
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Profiles>
+    <Profile  >
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="PRISM"/>
+      </ApplicationRef>
+      <Constraints>
+        <Filter operation="CONTAINS_ALL" property="groups">
+          <Value>
+            <List>
+              <String>User</String>
+            </List>
+          </Value>
+        </Filter>
+      </Constraints>
+    </Profile>
+  </Profiles>
+</Bundle>
+<Bundle    name="PRISM User" type="business">
+  <Attributes>
+    <Map>
+      <entry key="approval_required">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="mergeTemplates" value="false"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="&#xA;"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="Walter.Henderson"/>
+  </Owner>
+  <Requirements>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM User-IT"/>
+  </Requirements>
+</Bundle>
+<Bundle  displayName="Regions"   name="Regions" type="organizational">
+  <Attributes>
+    <Map>
+      <entry key="mergeTemplates" value="false"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="&lt;br>"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+</Bundle>
+<Bundle    name="Region.Americas" type="business">
+  <Attributes>
+    <Map>
+      <entry key="mergeTemplates" value="false"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="Mined Business Functional Role. Date mined: 12/13/12 7:37:24 AM"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Inheritance>
+    <Reference class="sailpoint.object.Bundle"  name="Regions"/>
+  </Inheritance>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Selector>
+    <IdentitySelector>
+      <MatchExpression and="true">
+        <MatchTerm name="region" value="Americas"/>
+      </MatchExpression>
+    </IdentitySelector>
+  </Selector>
+</Bundle>
+<Bundle    name="Region.Asia-Pacific" type="business">
+  <Attributes>
+    <Map>
+      <entry key="mergeTemplates" value="false"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="Mined Business Functional Role. Date mined: 12/13/12 7:37:24 AM"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Inheritance>
+    <Reference class="sailpoint.object.Bundle"  name="Regions"/>
+  </Inheritance>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Selector>
+    <IdentitySelector>
+      <MatchExpression and="true">
+        <MatchTerm name="region" value="Asia-Pacific"/>
+      </MatchExpression>
+    </IdentitySelector>
+  </Selector>
+</Bundle>
+<Bundle    name="Region.Europe" type="business">
+  <Attributes>
+    <Map>
+      <entry key="mergeTemplates" value="false"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="Mined Business Functional Role. Date mined: 12/13/12 7:37:24 AM"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Inheritance>
+    <Reference class="sailpoint.object.Bundle"  name="Regions"/>
+  </Inheritance>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Selector>
+    <IdentitySelector>
+      <MatchExpression and="true">
+        <MatchTerm name="region" value="Europe"/>
+      </MatchExpression>
+    </IdentitySelector>
+  </Selector>
+</Bundle>
+<Bundle  displayName="TRAKK"   name="TRAKK" type="organizational">
+  <Attributes>
+    <Map>
+      <entry key="mergeTemplates" value="false"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="&lt;br>"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+</Bundle>
+<Bundle   name="TRAKK - Basic" type="it">
+  <Attributes>
+    <Map>
+      <entry key="approval_required">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="mergeTemplates" value="false"/>
+    </Map>
+  </Attributes>
+  <Inheritance>
+    <Reference class="sailpoint.object.Bundle"  name="TRAKK"/>
+  </Inheritance>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Profiles>
+    <Profile  >
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+      </ApplicationRef>
+      <Constraints>
+        <Filter operation="CONTAINS_ALL" property="capability">
+          <Value>
+            <List>
+              <String>input</String>
+            </List>
+          </Value>
+        </Filter>
+      </Constraints>
+    </Profile>
+  </Profiles>
+</Bundle>
+<Bundle   name="TRAKK - Manager Access" type="it">
+  <Attributes>
+    <Map>
+      <entry key="approval_required">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="mergeTemplates" value="false"/>
+    </Map>
+  </Attributes>
+  <Inheritance>
+    <Reference class="sailpoint.object.Bundle"  name="TRAKK - Basic"/>
+  </Inheritance>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Profiles>
+    <Profile  >
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+      </ApplicationRef>
+      <Constraints>
+        <Filter operation="CONTAINS_ALL" property="capability">
+          <Value>
+            <List>
+              <String>approve</String>
+              <String>reject</String>
+            </List>
+          </Value>
+        </Filter>
+      </Constraints>
+    </Profile>
+  </Profiles>
+</Bundle>
+<Bundle  displayName="TRAKK - Super User"  name="TRAKK - Super User" type="it">
+  <Attributes>
+    <Map>
+      <entry key="approval_required">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="mergeTemplates" value="false"/>
+    </Map>
+  </Attributes>
+  <Inheritance>
+    <Reference class="sailpoint.object.Bundle"  name="TRAKK"/>
+  </Inheritance>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Profiles>
+    <Profile  >
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+      </ApplicationRef>
+      <Constraints>
+        <Filter operation="CONTAINS_ALL" property="capability">
+          <Value>
+            <List>
+              <String>super</String>
+            </List>
+          </Value>
+        </Filter>
+      </Constraints>
+    </Profile>
+  </Profiles>
+</Bundle>
+</sailpoint>

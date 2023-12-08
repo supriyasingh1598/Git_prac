@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Form PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Form   name="Capabilities Report Form">
+  <Section columns="2" label="Capability Filters" name="customProperties">
+    <Field displayName="Identities" helpKey="Identities to include on report" multi="true" name="identity" type="Identity" value="ref:identity"/>
+    <Field displayName="Managers" helpKey="Managers of Identities to include" multi="true" name="manager" type="Identity" value="ref:manager"/>
+  </Section>
+</Form>

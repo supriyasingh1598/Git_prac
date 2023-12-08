@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Tail IdentityIQ Log
+Type=Application
+Terminal=false
+Exec=/home/spadmin/ProvisioningTraining/admin/scripts/TailIIQLog.sh
+Name[en_US]=Tail IdentityIQ Log
+GenericName[en_US]=

@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="AllowedValues-Location" type="AllowedValues">
+  <Description>Allowed Value Rule to calculate all Location attributes from the data stored for each Identity</Description>
+  <Signature returnType="Object">
+    <Inputs>
+      <Argument name="log">
+        <Description>
+          The log object associated with the SailPointContext.
+        </Description>
+      </Argument>
+      <Argument name="context">
+        <Description>
+          A sailpoint.api.SailPointContext object that can be used to query the database if necessary.
+        </Description>
+      </Argument>
+      <Argument name="identity">
+        <Description>
+          The Identity object being provisioned.
+        </Description>
+      </Argument>
+      <Argument name="form">
+        <Description>
+          The Form object for the provisioning plan.
+        </Description>
+      </Argument>
+      <Argument name="field">
+        <Description>
+          The Field object being analyzed.
+        </Description>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="value">
+        <Description>
+          An Obect (possibly a Collection) of the allowed values for the given
+          field.
+        </Description>
+      </Argument>
+    </Returns>
+  </Signature>
+  <Source>import java.util.ArrayList;
+      import sailpoint.api.*;
+      import sailpoint.object.*;
+
+      List locations = new ArrayList();
+
+      QueryOptions qo = new QueryOptions();
+
+      qo.setDistinct(true);
+      qo.addOrdering("location", true);
+
+      List props = new ArrayList();
+      props.add("location");
+
+      Iterator result = context.search(Identity.class, qo, props);
+      while (result.hasNext()) {
+             Object [] record = result.next();
+             String location = (String) record[0];
+             System.out.println("location : " + location);
+             locations.add(location);
+      }
+
+      return locations;
+
+</Source>
+</Rule>

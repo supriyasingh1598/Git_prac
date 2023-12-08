@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=Start Tomcat
+Type=Application
+Terminal=true
+Exec=nohup /home/spadmin/ProvisioningTraining/admin/scripts/StartTomcat.sh &
+Name[en_US]=Start Tomcat
+GenericName[en_US]=

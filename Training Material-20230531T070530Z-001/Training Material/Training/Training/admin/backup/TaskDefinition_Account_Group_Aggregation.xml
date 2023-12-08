@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskDefinition  executor="sailpoint.task.ResourceIdentityScan" formPath="/monitor/tasks/accountGroupAggregationTask.xhtml"   name="Account Group Aggregation" progressInterval="5000" progressMode="String" template="true" type="AccountGroupAggregation">
+  <Attributes>
+    <Map>
+      <entry key="aggregationType" value="group"/>
+    </Map>
+  </Attributes>
+  <Description>
+            Task template for application group scanning.
+        </Description>
+  <Signature>
+    <Inputs>
+      <Argument multi="true" name="applications" required="true" type="Application">
+        <Prompt>task_in_account_group_aggregation_applications</Prompt>
+      </Argument>
+      <Argument helpKey="help_task_delta_aggregation" name="deltaAggregation" type="boolean">
+        <Prompt>task_in_account_aggregation_delta</Prompt>
+      </Argument>
+      <Argument name="checkDeleted" type="boolean">
+        <Prompt>task_in_account_aggregation_check_deleted_acct_groups</Prompt>
+      </Argument>
+      <Argument name="descriptionLocale" type="string">
+        <Prompt>task_in_account_aggregation_description_locale</Prompt>
+      </Argument>
+      <Argument name="descriptionAttribute" type="string">
+        <Prompt>task_in_account_aggregation_description_attribute</Prompt>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="applications" type="int">
+        <Prompt>task_out_account_group_aggregation_applications</Prompt>
+      </Argument>
+      <Argument name="total" type="int">
+        <Prompt>task_out_account_group_aggregation_total</Prompt>
+      </Argument>
+      <Argument name="groupsCreated" type="int">
+        <Prompt>task_out_account_group_aggregation_created</Prompt>
+      </Argument>
+      <Argument name="groupsUpdated" type="int">
+        <Prompt>task_out_account_group_aggregation_updated</Prompt>
+      </Argument>
+      <Argument name="groupsDeleted" type="int">
+        <Prompt>task_out_account_group_aggregation_deleted</Prompt>
+      </Argument>
+    </Returns>
+  </Signature>
+</TaskDefinition>

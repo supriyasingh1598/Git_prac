@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Profile PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Profile    name="PRISM-super">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application"  name="PRISM"/>
+  </ApplicationRef>
+  <Constraints>
+    <Filter operation="CONTAINS_ALL" property="groups">
+      <Value>
+        <List>
+          <String>Super</String>
+        </List>
+      </Value>
+    </Filter>
+  </Constraints>
+</Profile>

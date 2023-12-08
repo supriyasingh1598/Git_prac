@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE TaskDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<TaskDefinition   name="IT-Roles - TRAKK" resultAction="Rename" subType="task_item_type_it_role_mining" type="ITRoleMining">
+  <Attributes>
+    <Map>
+      <entry key="applications" value="ff8080813b8535a9013b896e03770458"/>
+      <entry key="identityFilter" value="&lt;List>&#xA;  &lt;Filter operation=&quot;EQ&quot; property=&quot;inactive&quot;>&#xA;    &lt;Value>&#xA;      &lt;Boolean>&lt;/Boolean>&#xA;    &lt;/Value>&#xA;  &lt;/Filter>&#xA;  &lt;Filter operation=&quot;IN&quot; property=&quot;links.application.id&quot;>&#xA;    &lt;Value>&#xA;      &lt;List>&#xA;        &lt;String>ff8080813b8535a9013b896e03770458&lt;/String>&#xA;      &lt;/List>&#xA;    &lt;/Value>&#xA;  &lt;/Filter>&#xA;&lt;/List>&#xA;"/>
+      <entry key="includedEntitlements"/>
+      <entry key="isExcluded">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="itRoleMiningResultName" value="IT-Roles - TRAKK"/>
+      <entry key="maxCandidateRoles">
+        <value>
+          <Integer>1000</Integer>
+        </value>
+      </entry>
+      <entry key="minEntitlementsPerRole">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="minIdentitiesPerRole">
+        <value>
+          <Integer>0</Integer>
+        </value>
+      </entry>
+      <entry key="populationName"/>
+      <entry key="roleMiningFilterType" value="searchByAttributes"/>
+    </Map>
+  </Attributes>
+  <Description>
+      IT Role Mining based on a population, List of applications/entitlements and thresholds.
+    </Description>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Parent>
+    <Reference class="sailpoint.object.TaskDefinition"  name="New IT Role Mining"/>
+  </Parent>
+</TaskDefinition>

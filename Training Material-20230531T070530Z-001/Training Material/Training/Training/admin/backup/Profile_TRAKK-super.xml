@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Profile PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Profile    name="TRAKK-super">
+  <ApplicationRef>
+    <Reference class="sailpoint.object.Application"  name="TRAKK"/>
+  </ApplicationRef>
+  <Constraints>
+    <Filter operation="CONTAINS_ALL" property="capability">
+      <Value>
+        <List>
+          <String>super</String>
+        </List>
+      </Value>
+    </Filter>
+  </Constraints>
+</Profile>

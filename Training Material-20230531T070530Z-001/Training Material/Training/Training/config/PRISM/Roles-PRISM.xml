@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<Bundle   name="PRISM Manager" type="business">
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Requirements>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM Manager-IT"/>
+  </Requirements>
+</Bundle>
+<Bundle    name="PRISM Manager-IT" type="it">
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Profiles>
+    <Profile   >
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="PRISM"/>
+      </ApplicationRef>
+      <Constraints>
+        <Filter operation="CONTAINS_ALL" property="groups">
+          <Value>
+            <List>
+              <String>Manager</String>
+            </List>
+          </Value>
+        </Filter>
+      </Constraints>
+    </Profile>
+  </Profiles>
+</Bundle>
+<Bundle   name="PRISM Super" type="business">
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Requirements>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM Super-IT"/>
+  </Requirements>
+  <RoleScorecard   permittedEntitlements="2" provisionedEntitlements="2"/>
+</Bundle>
+<Bundle    name="PRISM Super-IT" type="it">
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Profiles>
+    <Profile   >
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="PRISM"/>
+      </ApplicationRef>
+      <Constraints>
+        <Filter operation="CONTAINS_ALL" property="groups">
+          <Value>
+            <List>
+              <String>Super</String>
+            </List>
+          </Value>
+        </Filter>
+      </Constraints>
+    </Profile>
+  </Profiles>
+</Bundle>
+<Bundle   name="PRISM User" type="business">
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Requirements>
+    <Reference class="sailpoint.object.Bundle"  name="PRISM User-IT"/>
+  </Requirements>
+</Bundle>
+<Bundle    name="PRISM User-IT" type="it">
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <Profiles>
+    <Profile   >
+      <ApplicationRef>
+        <Reference class="sailpoint.object.Application"  name="PRISM"/>
+      </ApplicationRef>
+      <Constraints>
+        <Filter operation="CONTAINS_ALL" property="groups">
+          <Value>
+            <List>
+              <String>User</String>
+            </List>
+          </Value>
+        </Filter>
+      </Constraints>
+    </Profile>
+  </Profiles>
+</Bundle>
+</sailpoint>

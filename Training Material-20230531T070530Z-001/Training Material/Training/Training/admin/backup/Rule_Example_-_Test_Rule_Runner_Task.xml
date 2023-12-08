@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Example - Test Rule Runner Task">
+  <Description>Example Rule - Identity Description</Description>
+  <Source>
+
+import java.util.Date; 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+Date date = new Date();
+System.out.println("Rule Runner Test... Current Time/Date = " + dateFormat.format(date));
+
+  
+  </Source>
+</Rule>

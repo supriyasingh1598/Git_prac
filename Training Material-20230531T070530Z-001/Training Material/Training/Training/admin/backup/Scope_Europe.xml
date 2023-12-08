@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Scope PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Scope assignedScopePath="ff80808147cb128c0147cc16f2bd017d"  displayName="Europe"   name="Europe" path="ff80808147cb128c0147cc16f2bd017d">
+  <AssignedScope>
+    <Reference class="sailpoint.object.Scope"  name="Europe"/>
+  </AssignedScope>
+</Scope>

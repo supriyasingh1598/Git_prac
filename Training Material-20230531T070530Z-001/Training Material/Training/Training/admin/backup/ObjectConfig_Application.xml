@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE ObjectConfig PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<ObjectConfig    name="Application">
+  <ObjectAttribute defaultValue="IT" displayName="Division" editMode="Permanent" name="division">
+    <AllowedValues>
+      <String>HR</String>
+      <String>IT</String>
+      <String>FINANCE</String>
+      <String>ENGINEERING</String>
+      <String>MARKETING</String>
+      <String>SALES</String>
+    </AllowedValues>
+    <Description>This defines what division of the company this app is part of...</Description>
+  </ObjectAttribute>
+</ObjectConfig>

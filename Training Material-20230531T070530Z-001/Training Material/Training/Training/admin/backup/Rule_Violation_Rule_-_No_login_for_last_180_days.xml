@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell"  name="Violation Rule - No login for last 180 days" type="Policy">
+  <Description>This rule is used to determine if a Policy has been violated.</Description>
+  <Signature returnType="PolicyViolation">
+    <Inputs>
+      <Argument name="log">
+        <Description>
+          The log object associated with the SailPointContext.
+        </Description>
+      </Argument>
+      <Argument name="context">
+        <Description>
+          A sailpoint.api.SailPointContext object that can be used to query the database if necessary.
+        </Description>
+      </Argument>
+      <Argument name="identity">
+        <Description>
+          The Identity being inspected.
+        </Description>
+      </Argument>
+      <Argument name="policy">
+        <Description>
+          The Policy being evaluated.
+        </Description>
+      </Argument>
+      <Argument name="constraint">
+        <Description>
+          The Constraint being evaluated.
+        </Description>
+      </Argument>
+    </Inputs>
+    <Returns>
+      <Argument name="violation">
+        <Description>
+          The PolicyViolation object.
+        </Description>
+      </Argument>
+    </Returns>
+  </Signature>
+  <Source>import sailpoint.api.SailPointContext;
+import sailpoint.object.Attributes;
+
+import sailpoint.object.Custom;
+import sailpoint.object.Filter;
+import sailpoint.object.Identity;
+import sailpoint.object.QueryOptions;
+import sailpoint.object.Policy;
+import sailpoint.object.PolicyViolation;
+import sailpoint.object.Link;
+
+import sailpoint.tools.GeneralException;
+import sailpoint.tools.Message;
+
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
+import java.util.*;
+
+        /**
+         * Returns a date &lt;n> days before today.
+         */
+
+        private Date getDateNDaysAgo(int numDays) {
+                System.out.println("entering getDateNDaysAgo");
+
+                Calendar cal = Calendar.getInstance();
+                Date returnDate = null;
+
+                cal.add(Calendar.DATE, -(numDays));
+                returnDate = cal.getTime();
+                System.out.println("leaving with date" + returnDate);
+                return (returnDate);
+        }
+
+      /**
+     * Checks if the first date is before the second date ignoring time.
+     **/
+
+    public static boolean isBeforeDay(Date date1, Date date2) {
+        if (date1 == null || date2 == null) {
+            throw new IllegalArgumentException("The dates must not be null");
+        }
+        Calendar cal1 = Calendar.getInstance();
+        cal1.setTime(date1);
+        Calendar cal2 = Calendar.getInstance();
+        cal2.setTime(date2);
+        return isBeforeDay(cal1, cal2);
+    }
+           
+    /**
+     * Checks if the first calendar date is before the second calendar date ignoring time.
+     */
+    public static boolean isBeforeDay(Calendar cal1, Calendar cal2) {
+        if (cal1 == null || cal2 == null) {
+            throw new IllegalArgumentException("The dates must not be null");
+        }
+        if (cal1.get(Calendar.ERA) &lt; cal2.get(Calendar.ERA)) return true;
+        if (cal1.get(Calendar.ERA) > cal2.get(Calendar.ERA)) return false;
+        if (cal1.get(Calendar.YEAR) &lt; cal2.get(Calendar.YEAR)) return true;
+        if (cal1.get(Calendar.YEAR) > cal2.get(Calendar.YEAR)) return false;
+        return cal1.get(Calendar.DAY_OF_YEAR) &lt; cal2.get(Calendar.DAY_OF_YEAR);
+    }
+        
+        PolicyViolation v = null;
+
+        String lastLoginDateStr = null;
+        List links = identity.getLinks();
+    if (links == null) {
+       return null;
+    }
+    for (Link link:links)
+    {
+      String appname = link.getApplicationName();
+
+      if ((appname != null) &amp;&amp; (appname.equalsIgnoreCase("PAM")))
+      {
+        lastLoginDateStr = link.getAttribute("Last Login Date");
+      }
+    }
+        
+        if (lastLoginDateStr == null) {
+           return null;
+        }
+
+        DateFormat formatter = new SimpleDateFormat("MM/dd/yy");
+
+System.out.println("Last Login Date from Link = " + lastLoginDateStr);
+
+    Date lastLoginDate = (Date)formatter.parse(lastLoginDateStr);
+
+    System.out.println("Last Login Date for" + identity.toString() + " = " + lastLoginDate);
+
+    Date testDate = getDateNDaysAgo(180);
+        if (isBeforeDay(lastLoginDate, testDate)) {
+           System.out.println("old date");
+           v = new PolicyViolation();
+           v.setActive(true);
+           v.setIdentity(identity);
+           v.setPolicy(policy);
+           v.setConstraint(constraint);
+           v.setDescription("[Last Login Date [" + lastLoginDateStr  + "] is more than 180 days ago.]");
+           v.setStatus(sailpoint.object.PolicyViolation.Status.Open);
+   }
+           if (identity.getManager()!=null) {
+                  v.setOwner(identity.getManager());
+           } else {
+                  v.setOwner(context.getObjectByName(Identity.class,"spadmin"));
+           }
+return v;
+</Source>
+</Rule>

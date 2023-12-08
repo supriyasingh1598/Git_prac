@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE sailpoint PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<sailpoint>
+<ImportAction name="merge">
+<UIConfig    name="UIConfig">
+  <Attributes>
+    <Map>
+      <entry key="identityTableColumns">
+        <value>
+          <List>
+            <ColumnConfig dataIndex="status" headerKey="Status" hideable="true" property="status" sortProperty="status" sortable="true"/>
+            <ColumnConfig dataIndex="correlated" headerKey="Authoritative?" hideable="true" property="correlated" sortProperty="correlated" sortable="true"/>
+          </List>
+        </value>
+      </entry>
+      <entry key="identityViewAttributes" value="name,firstname,lastname,email,manager,department,location,empId,region,jobtitle,costcenter,status"/>
+    </Map>
+  </Attributes>
+</UIConfig>
+</ImportAction>
+</sailpoint>

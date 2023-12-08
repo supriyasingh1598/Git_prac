@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Encoding=UTF-8
+Name=IIQ Console
+Type=Application
+Terminal=false
+Exec=/home/spadmin/ProvisioningTraining/admin/scripts/IIQConsole.sh
+Name[en_US]=IIQ Console
+GenericName[en_US]=IIQ Console

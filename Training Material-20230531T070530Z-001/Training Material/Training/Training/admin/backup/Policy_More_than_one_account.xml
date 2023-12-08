@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Policy PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Policy certificationActions="Mitigated,Delegated" configPage="genericpolicy.xhtml"  executor="sailpoint.policy.AccountPolicyExecutor"   name="More than one account" state="Active" type="Account" typeKey="policy_type_account" violationOwnerType="Manager">
+  <PolicyAlert escalationStyle="none">
+    <NotificationEmailTemplateRef>
+      <Reference class="sailpoint.object.EmailTemplate"  name="Policy Violation"/>
+    </NotificationEmailTemplateRef>
+    <Owners>
+      <Reference class="sailpoint.object.Identity"  name="Aaron.Nichols"/>
+    </Owners>
+  </PolicyAlert>
+  <Attributes>
+    <Map>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US" value="&lt;br>"/>
+          </Map>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+  <Owner>
+    <Reference class="sailpoint.object.Identity"  name="spadmin"/>
+  </Owner>
+  <GenericConstraints>
+    <GenericConstraint   name="Multiple Application Accounts" violationOwnerType="None" weight="300"/>
+  </GenericConstraints>
+</Policy>

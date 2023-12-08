@@ -1,0 +1,130 @@
+checkout Application 'HR System - Employees' /home/spadmin/AdministrationTraining/admin/backup/Application_HR_System_-_Employees.xml -clean
+checkout Application 'Contractor Feed' /home/spadmin/AdministrationTraining/admin/backup/Application_Contractor_Feed.xml -clean
+checkout Application 'Financials' /home/spadmin/AdministrationTraining/admin/backup/Application_Financials.xml -clean
+checkout Application 'PAM' /home/spadmin/AdministrationTraining/admin/backup/Application_PAM.xml -clean
+checkout Application 'TRAKK' /home/spadmin/AdministrationTraining/admin/backup/Application_TRAKK.xml -clean
+checkout Application 'PRISM' /home/spadmin/AdministrationTraining/admin/backup/Application_PRISM.xml -clean
+checkout Application 'LDAP' /home/spadmin/AdministrationTraining/admin/backup/Application_LDAP.xml -clean
+
+checkout AuditConfig 'AuditConfig' /home/spadmin/AdministrationTraining/admin/backup/AuditConfig.xml -clean
+
+export -clean /home/spadmin/AdministrationTraining/admin/backup/Bundle_All.xml Bundle
+checkout Bundle 'TRAKK' /home/spadmin/AdministrationTraining/admin/backup/Bundle_TRAKK.xml -clean
+checkout Bundle 'Regions' /home/spadmin/AdministrationTraining/admin/backup/Bundle_Regions.xml -clean
+checkout Bundle 'Region.Americas' /home/spadmin/AdministrationTraining/admin/backup/Bundle_Region.Americas.xml -clean
+checkout Bundle 'Region.Europe' /home/spadmin/AdministrationTraining/admin/backup/Bundle_Region.Europe.xml -clean
+checkout Bundle 'Region.Asia-Pacific' /home/spadmin/AdministrationTraining/admin/backup/Bundle_Region.Asia-Pacific.xml -clean
+checkout Bundle 'TRAKK - Basic' /home/spadmin/AdministrationTraining/admin/backup/Bundle_TRAKK_-_Basic.xml -clean
+checkout Bundle 'TRAKK - Manager Access' /home/spadmin/AdministrationTraining/admin/backup/Bundle_TRAKK_-_Manager_Access.xml -clean
+checkout Bundle 'TRAKK - Super User' /home/spadmin/AdministrationTraining/admin/backup/Bundle_TRAKK_-_Super_User.xml -clean
+checkout Bundle 'PRISM Manager-IT' /home/spadmin/AdministrationTraining/admin/backup/Bundle_PRISM_Manager-IT.xml -clean
+checkout Bundle 'PRISM Manager' /home/spadmin/AdministrationTraining/admin/backup/Bundle_PRISM_Manager.xml -clean
+checkout Bundle 'PRISM Super-IT' /home/spadmin/AdministrationTraining/admin/backup/Bundle_PRISM_Super-IT.xml -clean
+checkout Bundle 'PRISM Super' /home/spadmin/AdministrationTraining/admin/backup/Bundle_PRISM_Super.xml -clean
+checkout Bundle 'PRISM User-IT' /home/spadmin/AdministrationTraining/admin/backup/Bundle_PRISM_User-IT.xml -clean
+checkout Bundle 'PRISM User' /home/spadmin/AdministrationTraining/admin/backup/Bundle_PRISM_User.xml -clean
+
+checkout CorrelationConfig 'Financial Correlation' /home/spadmin/AdministrationTraining/admin/backup/CorrelationConfig_Financial_Correlation.xml -clean
+checkout CorrelationConfig 'PAM Correlation' /home/spadmin/AdministrationTraining/admin/backup/CorrelationConfig_PAM_Correlation.xml -clean
+checkout CorrelationConfig 'LDAP Correlation' /home/spadmin/AdministrationTraining/admin/backup/CorrelationConfig_LDAP_Correlation.xml -clean
+
+checkout CorrelationConfig 'Financial Correlation' /home/spadmin/AdministrationTraining/admin/backup/CorrelationConfig_Financial_Correlation.xml -clean
+
+checkout EmailTemplate 'Example Email Template' /home/spadmin/AdministrationTraining/admin/backup/EmailTemplate_Example_Email_Template.xml -clean
+checkout EmailTemplate 'TestEmail' /home/spadmin/AdministrationTraining/admin/backup/EmailTemplate_TestEmail.xml -clean
+checkout Form 'Capabilities Report Form' /home/spadmin/AdministrationTraining/admin/backup/Form_Capabilities_Report_Form.xml -clean
+
+
+checkout GroupFactory 'Status' /home/spadmin/AdministrationTraining/admin/backup/GroupFactory_Status.xml -clean
+checkout GroupFactory 'Location' /home/spadmin/AdministrationTraining/admin/backup/GroupFactory_Location.xml -clean
+checkout GroupFactory 'Manager' /home/spadmin/AdministrationTraining/admin/backup/GroupFactory_Manager.xml -clean
+
+checkout Identity 'Ryan.Russell' /home/spadmin/AdministrationTraining/admin/backup/Identity_Ryan.Russell.xml -clean
+checkout Identity 'Walter.Henderson' /home/spadmin/AdministrationTraining/admin/backup/Identity_Walter.Henderson.xml -clean
+checkout Identity 'spadmin' /home/spadmin/AdministrationTraining/admin/backup/Identity_spadmin.xml -clean
+
+checkout ObjectConfig 'Identity' /home/spadmin/AdministrationTraining/admin/backup/ObjectConfig_Identity.xml -clean
+checkout ObjectConfig 'Link' /home/spadmin/AdministrationTraining/admin/backup/ObjectConfig_Link.xml -clean
+checkout ObjectConfig 'Bundle' /home/spadmin/AdministrationTraining/admin/backup/ObjectConfig_Bundle.xml -clean
+checkout ObjectConfig 'ManagedAttribute' /home/spadmin/AdministrationTraining/admin/backup/ObjectConfig_ManagedAttribute.xml -clean
+checkout ObjectConfig 'Application' /home/spadmin/AdministrationTraining/admin/backup/ObjectConfig_Application.xml -clean
+
+checkout PasswordPolicy 'LDAP Default Password Policy' /home/spadmin/AdministrationTraining/admin/backup/LDAP_Default_Password_Policy.xml -clean
+
+checkout Policy 'TRAKK SOD Policy' /home/spadmin/AdministrationTraining/admin/backup/Policy_TRAKK_SOD_Policy.xml -clean
+checkout Policy 'More than one account' /home/spadmin/AdministrationTraining/admin/backup/Policy_More_than_one_account.xml -clean
+checkout Policy 'Last Login more than 180 days ago' /home/spadmin/AdministrationTraining/admin/backup/Policy_Last_Login_more_than_180_days_ago.xml -clean
+
+
+checkout Rule 'Creation Rule - Set Password' /home/spadmin/AdministrationTraining/admin/backup/Rule_Creation_Rule_-_Set_Password.xml -clean
+checkout Rule 'Identity Attribute: Employees' /home/spadmin/AdministrationTraining/admin/backup/Rule_Identity_Attribute_Employees.xml -clean
+checkout Rule 'IdentityAttribute: Contractors' /home/spadmin/AdministrationTraining/admin/backup/Rule_IdentityAttribute_Contractors.xml -clean
+checkout Rule 'Build Map Rule - PAM' /home/spadmin/AdministrationTraining/admin/backup/Rule_Build_Map_Rule_-_PAM.xml -clean
+checkout Rule 'Correlation Rule - TRAKK' /home/spadmin/AdministrationTraining/admin/backup/Rule_Correlation_Rule_-_TRAKK.xml -clean
+checkout Rule 'PRISM - Correlation' /home/spadmin/AdministrationTraining/admin/backup/Rule_PRISM_-_Correlation.xml -clean
+checkout Rule 'PRISM - Provision' /home/spadmin/AdministrationTraining/admin/backup/Rule_PRISM_-_Provision.xml -clean
+checkout Rule 'PRISM - BuildMap' /home/spadmin/AdministrationTraining/admin/backup/Rule_PRISM_-_BuildMap.xml -clean
+checkout Rule 'Link Attribute - PRISM Privileged' /home/spadmin/AdministrationTraining/admin/backup/Rule_Link_Attribute_-_PRISM_Privileged.xml -clean
+checkout Rule 'Link Attribute - PAM Privileged' /home/spadmin/AdministrationTraining/admin/backup/Rule_Link_Attribute_-_PAM_Privileged.xml -clean
+checkout Rule 'Link Attribute - PRISM Inactive' /home/spadmin/AdministrationTraining/admin/backup/Rule_Link_Attribute_-_PRISM_Inactive.xml -clean
+checkout Rule 'Group Owner - Assign Manager' /home/spadmin/AdministrationTraining/admin/backup/Rule_Group_Owner_-_Assign_Manager.xml -clean
+checkout Rule 'Group Owner - Highest Ranking Member of Sub-Group' /home/spadmin/AdministrationTraining/admin/backup/Rule_Group_Owner_-_Highest_Ranking_Member_of_Sub-Group.xml -clean
+checkout Rule 'Rule - Extras - Run Task Rule' /home/spadmin/AdministrationTraining/admin/backup/Rule_Rule_-_Extras_-_Run_Task_Rule.xml -clean
+checkout Rule 'Example - Walk Certification' /home/spadmin/AdministrationTraining/admin/backup/Rule_Example_-_Walk_Certification.xml -clean
+checkout Rule 'Example - Walk Identities' /home/spadmin/AdministrationTraining/admin/backup/Rule_Example_-_Walk_Identities.xml -clean
+checkout Rule 'Example - Report Uncorrelated Identities' /home/spadmin/AdministrationTraining/admin/backup/Rule_Example_-_Report_Uncorrelated_Identities.xml -clean
+checkout Rule 'Example - Test Rule Runner Task' /home/spadmin/AdministrationTraining/admin/backup/Rule_Example_-_Test_Rule_Runner_Task.xml -clean
+checkout Rule 'Example - Managed Entitlements' /home/spadmin/AdministrationTraining/admin/backup/Rule_Example_-_Managed_Entitlements.xml -clean
+checkout Rule 'OutputCustomObjectFileScript' /home/spadmin/AdministrationTraining/admin/backup/Rule_OutputCustomObjectFileScript.xml -clean
+checkout Rule 'Violation Rule - No login for last 180 days' /home/spadmin/AdministrationTraining/admin/backup/Rule_Violation_Rule_-_No_login_for_last_180_days.xml -clean
+checkout Rule 'Exclusion Rule - Manager Cert' /home/spadmin/AdministrationTraining/admin/backup/Rule_Exclusion_Rule_-_Manager_Cert.xml -clean
+checkout Rule 'Predelegation Rule - Manager Cert' /home/spadmin/AdministrationTraining/admin/backup/Rule_Predelegation_Rule_-_Manager_Cert.xml -clean
+checkout Rule 'Certifier - Group Owner' /home/spadmin/AdministrationTraining/admin/backup/Rule_Certifier_-_Group_Owner.xml -clean
+checkout Rule 'Role Assignment To Managers' /home/spadmin/AdministrationTraining/admin/backup/Rule_Role_Assignment_To_Managers.xml -clean
+checkout Rule 'Validation - Email Field' /home/spadmin/AdministrationTraining/admin/backup/Rule_Validation_-_Email_Field.xml -clean
+
+checkout Rule 'AllowedValues-Location' /home/spadmin/AdministrationTraining/admin/backup/Rule_AllowedValues-Location.xml -clean
+checkout Rule 'AllowedValues-Region' /home/spadmin/AdministrationTraining/admin/backup/Rule_AllowedValues-Region.xml -clean
+checkout Rule 'Example - Audit' /home/spadmin/AdministrationTraining/admin/backup/Rule_Example_-_Audit.xml -clean
+checkout Rule 'Example -  List Group Members' /home/spadmin/AdministrationTraining/admin/backup/Rule_Example_-__List_Group_Members.xml -clean
+checkout Rule 'AllowedValues-Location2' /home/spadmin/AdministrationTraining/admin/backup/Rule_AllowedValues-Location2.xml -clean
+checkout Rule 'Example -  Get object by ID' /home/spadmin/AdministrationTraining/admin/backup/Rule_Example_-__Get_object_by_ID.xml -clean
+checkout Rule 'Manager or other user...' /home/spadmin/AdministrationTraining/admin/backup/Rule_Manager_or_other_user....xml -clean
+checkout Rule 'test' /home/spadmin/AdministrationTraining/admin/backup/Rule_test.xml -clean
+checkout Rule 'Test-TriggerRule' /home/spadmin/AdministrationTraining/admin/backup/Rule_Test-TriggerRule.xml -clean
+checkout Rule 'Test-SelectorRule' /home/spadmin/AdministrationTraining/admin/backup/Rule_Test-SelectorRule.xml -clean
+checkout Rule 'TestVelocity' /home/spadmin/AdministrationTraining/admin/backup/Rule_TestVelocity.xml -clean
+checkout Rule 'Application-List-Merge' /home/spadmin/AdministrationTraining/admin/backup/Rule_Application-List-Merge.xml -clean
+checkout Rule 'Test - Pre-Iterate' /home/spadmin/AdministrationTraining/admin/backup/Rule_Test_-_Pre-Iterate.xml -clean
+checkout Rule 'Test - Post - Iterate' /home/spadmin/AdministrationTraining/admin/backup/Rule_Test_-_Post_-_Iterate.xml -clean
+checkout Rule 'Test - Customization' /home/spadmin/AdministrationTraining/admin/backup/Rule_Test_-_Customization.xml -clean
+
+checkout Scope 'Americas' /home/spadmin/AdministrationTraining/admin/backup/Scope_Americas.xml -clean
+checkout Scope 'Asia-Pacific' /home/spadmin/AdministrationTraining/admin/backup/Scope_Asia-Pacific.xml -clean
+checkout Scope 'Europe' /home/spadmin/AdministrationTraining/admin/backup/Scope_Europe.xml -clean
+
+checkout ScoreConfig 'ScoreConfig' /home/spadmin/AdministrationTraining/admin/backup/ScoreConfig_ScoreConfig.xml -clean
+
+
+checkout TaskDefinition 'Aggregate Employees and Contractors' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Aggregate_Employees_and_Contractors.xml -clean
+checkout TaskDefinition 'Aggregate Financial Application' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Aggregate_Financial_Application.xml -clean
+checkout TaskDefinition 'Aggregate PAM Application' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Aggregate_PAM_Application.xml -clean
+checkout TaskDefinition 'Aggregate PAM Account Groups' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Aggregate_PAM_Account_Groups.xml -clean
+checkout TaskDefinition 'Aggregate TRAKK Application' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Aggregate_TRAKK_Application.xml -clean
+checkout TaskDefinition 'Aggregate PRISM' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Aggregate_PRISM.xml -clean
+checkout TaskDefinition 'Aggregate PRISM Groups' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Aggregate_PRISM_Groups.xml -clean
+checkout TaskDefinition 'Aggregate LDAP' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Aggregate_LDAP.xml -clean
+checkout TaskDefinition 'Aggregate LDAP Groups' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Aggregate_LDAP_Groups.xml -clean
+checkout TaskDefinition 'Effective Access - Financial App - London' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Effective_Access_-_Financial_App_-_London.xml -clean
+checkout TaskDefinition 'Rule Runner Task' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Rule_Runner_Task.xml -clean
+checkout TaskDefinition 'Test of Rule Runner' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Test_of_Rule_Runner.xml -clean
+
+checkout TaskDefinition 'Capabilities Report' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Capabilities_Report.xml -clean
+checkout TaskDefinition 'Business Roles - Regions' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Business_Roles_-_Regions.xml -clean
+checkout TaskDefinition 'IT-Roles - TRAKK' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_IT-Roles_-_TRAKK.xml -clean
+checkout TaskDefinition 'Refresh and Provision Roles' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Refresh_and_Provision_Roles.xml -clean
+checkout TaskDefinition 'WG Test' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_WG_Test.xml -clean
+checkout TaskDefinition 'Test of WG' /home/spadmin/AdministrationTraining/admin/backup/TaskDefinition_Test_of_WG.xml -clean
+
+checkout Workgroup 'PAM Administrators' /home/spadmin/AdministrationTraining/admin/backup/Workgroup_PAM_Administrators.xml -clean
+checkout Workgroup 'SelfRegistrationWorkGroup' /home/spadmin/AdministrationTraining/admin/backup/Workgroup_SelfRegistrationWorkGroup.xml -clean

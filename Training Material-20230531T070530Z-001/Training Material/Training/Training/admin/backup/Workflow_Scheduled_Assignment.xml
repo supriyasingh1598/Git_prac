@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Workflow PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Workflow   libraries="Identity"  name="Scheduled Assignment" resultExpiration="-1" type="ScheduledAssignment">
+  <Variable input="true" name="identity">
+    <Description>The database id of the target identity</Description>
+  </Variable>
+  <Variable input="true" name="identityName">
+    <Description>The name of the target identity</Description>
+  </Variable>
+  <Variable input="true" name="assigner">
+    <Description>
+The name of the identity considered to be the source of the assignment.
+This is used for the audit event.  It is not necessary to make the assignment
+becuase the original assigner will also be stored in RoleAssignment metadata
+in the cube.
+    </Description>
+  </Variable>
+  <Variable editable="true" initializer="script:System.getProperty(&quot;iiq.forceRefreshAfterScheduledRoleChange&quot;)" name="doRefresh">
+    <Description>Set to true to cause a cube refresh after the assignment</Description>
+  </Variable>
+  <Variable input="true" name="eventType">
+    <Description>The type of assignment.  This will be one of the constants defined in RoleEventGenerator.</Description>
+  </Variable>
+  <Variable input="true" name="role">
+    <Description>The database id of the role to assign, if this is a role event</Description>
+  </Variable>
+  <Variable input="true" name="roleName">
+    <Description>The name of the role to assign, if this is a role event</Description>
+  </Variable>
+  <Variable input="true" name="application">
+    <Description>The database id of an application, if this is an entitlement event</Description>
+  </Variable>
+  <Variable input="true" name="applicationName">
+    <Description>The name of an application, if this is an entitlement event</Description>
+  </Variable>
+  <Variable input="true" name="instance">
+    <Description>The name of an application instance, if this is an entitlement event</Description>
+  </Variable>
+  <Variable input="true" name="nativeIdentity">
+    <Description>The specific id of the target account in the application, if this is an entitlement event</Description>
+  </Variable>
+  <Variable input="true" name="name">
+    <Description>The name of an attribute in the account schema, if this is an entitlement event</Description>
+  </Variable>
+  <Variable input="true" name="value">
+    <Description>The value of the account attribute, if this is an entitlement event</Description>
+  </Variable>
+  <Variable name="project">
+    <Description>ProvisioningProject compiled from the Request</Description>
+  </Variable>
+  <Description>
+Workflow called to handle a scheduled assignment and deassignments,
+commonly known as "sunrise" and "sunset".  These are intended to
+be used only from Request objects that are scheduled by the provisioning
+plan evaluator.
+  </Description>
+  <Step icon="Start" name="start">
+    <Transition to="Compile Assignment Project"/>
+  </Step>
+  <Step action="call:compileScheduledAssignmentProject" icon="Task" name="Compile Assignment Project" resultVariable="project">
+    <Arg name="identity" value="ref:identity"/>
+    <Arg name="assigner" value="ref:assigner"/>
+    <Arg name="eventType" value="ref:eventType"/>
+    <Arg name="role" value="ref:role"/>
+    <Arg name="application" value="ref:application"/>
+    <Arg name="instance" value="ref:instance"/>
+    <Arg name="nativeIdentity" value="ref:nativeIdentity"/>
+    <Arg name="name" value="ref:name"/>
+    <Arg name="value" value="ref:value"/>
+    <Arg name="optimisticProvisioning" value="ref:optimisticProvisioning"/>
+    <Transition to="Inspect Project"/>
+  </Step>
+  <Step name="Inspect Project">
+    <Script>
+      <Source>
+        // hooks for project customization before execution
+      </Source>
+    </Script>
+    <Transition to="Provision"/>
+  </Step>
+  <Step icon="Task" name="Provision">
+    <Arg name="project" value="ref:project"/>
+    <Arg name="foregroundProvisioning" value="true"/>
+    <Arg name="disableIdentityRequests" value="true"/>
+    <Arg name="trace" value="ref:trace"/>
+    <Description>
+      Execute the scheduled assignment project.
+      We call the standard subprocess that handles retries.
+      Note that the disableIdentityRequests option is passed
+      to prevent logging a warning since this workflow does
+      not maintain IdentityRequest objects.
+    </Description>
+    <Return name="project" to="project"/>
+    <WorkflowRef>
+      <Reference class="sailpoint.object.Workflow"  name="Provision with retries"/>
+    </WorkflowRef>
+    <Transition to="Refresh Identity" when="isTrue(doRefresh)"/>
+    <Transition to="end"/>
+  </Step>
+  <Step action="call:refreshIdentity" icon="Task" name="Refresh Identity">
+    <Arg name="identity" value="ref:identity"/>
+    <Arg name="correlateEntitlements" value="true"/>
+    <Arg name="provision" value="true"/>
+    <Arg name="doManualActions" value="false"/>
+    <Description>
+Add arguments as necessary to enable refresh features.  Provisioning is usually done
+with an option to the Activate Assignment step.  Here you might want to check
+policies or refresh the scorecard.  Correlating entitlements might pick up new
+detected roles if the provisioning was done synchronously.
+    </Description>
+    <Transition to="end"/>
+  </Step>
+  <Step icon="Stop" name="end"/>
+</Workflow>

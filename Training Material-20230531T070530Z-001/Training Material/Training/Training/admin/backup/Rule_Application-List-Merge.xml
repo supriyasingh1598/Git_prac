@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="Application-List-Merge">
+  <Signature returnType="String">
+    <Inputs>
+      <Argument name="log"/>
+      <Argument name="context"/>
+    </Inputs>
+    <Returns>
+      <Argument name="returnval"/>
+    </Returns>
+  </Signature>
+  <Source>import java.util.ArrayList;
+      import sailpoint.api.*;
+      import sailpoint.object.*;
+
+      QueryOptions qo = new QueryOptions();
+     
+     // Wanted to do this, but cannot do this because mergeRows doesn't exist as a property on application object. This would be easiest and most efficient...
+   
+     //  
+     // qo.addFilter(Filter.eq("mergeRows","true")); 
+     // 
+
+     String returnval = "";
+
+      Iterator result = context.search(Application.class, qo);
+      while (result.hasNext()) {
+             Application app = (Application)result.next();
+             
+             // Instead, we will grab all the applications and check each one for a non-null and "true" merge value
+
+             Boolean merge = app.getAttributeValue("mergeRows"); 
+             if (null != merge &amp;&amp; merge) { 
+                      returnval = returnval + "\nApplication=" + app.getName();
+              }
+      }
+
+      return returnval;
+
+</Source>
+</Rule>

@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Rule PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Rule   language="beanshell" name="OutputCustomObjectFileScript">
+  <Source>
+   
+	import java.util.Iterator;
+	import java.util.List;
+	import java.util.Map;
+        import java.util.HashMap;
+        import java.util.ArrayList;
+        
+        import java.io.BufferedWriter;
+        import java.io.File;
+        import java.io.FileWriter;
+        import java.io.IOException;
+
+        import sailpoint.tools.Util;
+	import sailpoint.api.SailPointContext;
+	import sailpoint.api.certification.BaseCertificationBuilder;
+	import sailpoint.tools.GeneralException;
+        import sailpoint.object.*;
+        import sailpoint.integration.RequestResult;
+        import sailpoint.integration.JsonUtil;
+        import sailpoint.integration.ProvisioningPlan;
+
+        import org.apache.commons.logging.Log;
+        import org.apache.commons.logging.LogFactory;
+
+        import sailpoint.api.CertificationContext;
+        import sailpoint.api.IdentityHistoryService;
+        import sailpoint.api.ObjectUtil;
+        import sailpoint.api.SailPointContext;
+        import sailpoint.api.DatabaseVersionException;
+        import sailpoint.api.SailPointFactory;
+        import sailpoint.integration.IntegrationExecutor;
+        import sailpoint.integration.IntegrationManager;
+        import sailpoint.object.IntegrationConfig;
+        import sailpoint.tools.GeneralException;
+        import sailpoint.tools.Util;
+        import sailpoint.tools.xml.XMLObjectFactory;
+        import java.text.SimpleDateFormat;
+        import java.util.GregorianCalendar;
+        import java.util.Properties;
+        import java.util.TimeZone;
+        import java.text.ParseException;
+
+        import java.lang.StackTraceElement;
+
+        
+    public List getSailPointObjectClasses() throws GeneralException {
+    
+//
+// Builds a list of all the classes that are SailPoint Object classes... 
+//
+
+        List spClasses = new ArrayList();
+    
+        List xmlClasses = XMLObjectFactory.getAnnotatedClasses();
+        for (Class clazz : xmlClasses) {
+            if (SailPointObject.class.isAssignableFrom(clazz)) {
+
+                Class spClass = clazz.asSubclass(SailPointObject.class);
+    
+                try {
+                    SailPointObject obj = spClass.newInstance();
+                    if (!obj.isXml() &amp;&amp; obj.hasAssignedScope()) {
+                        spClasses.add(spClass);
+                    }
+                }
+                catch (Exception e) {
+                    throw new GeneralException(e);
+                }
+            }
+        }
+        
+        return spClasses;
+    }   
+
+        //
+	//
+	// CUSTOMIZE - Adjust here to control behavior of the rule... 
+	//
+	// 
+	// Configure the following to control behavior of the rule... 
+	// debug = false/true - controls debug messaging from the rule
+	// installDate = (date in the format MM/DD/YYYY HH:MM:SS) to define the cutoff date for exporting objects
+	// listOfIgnoredClasses = String (CSV of ignored classed you do not want to export.) 
+
+	boolean debug = true;  // set to true to printout debug messsages 
+        Date installDate = Util.stringToDate("02/08/2013 15:25:00");
+        String listOfIgnoredClasses = "AccountGroup,ActivityConstraint,ActivityDataSource,ApplicationActivity,ApplicationScorecard,ArchivedCertificationEntity,ArchivedCertificationItem,AuditConfig,AuditEvent,AuthenticationQuestion,BundleArchive,Capability,Category,Certification,CertificationAction,CertificationArchive,CertificationChallenge,CertificationDefinition,CertificationDelegation,CertificationEntity,CertificationGroup,CertificationItem,SPRight,DashboardContent,DashboardLayout,DashboardReference,Dictionary,DictionaryTerm,EntitlementGroup,GenericConstraint,GroupDefinition,GroupIndex,Identity,IdentityArchive,IdentityDashboard,IdentitySnapshot,IdentityHistory,IdentityRequest,JasperTemplate,JasperResult,Link,ManagedAttribute,MiningConfig,MitigationExpiration,MessageTemplate,PersistedFile,PolicyViolation,Process,ProcessLog,ProvisioningRequest,RemediationItem,Request,RequestDefinition,RightConfig,RoleIndex,RoleMetadata,RoleMiningResult,Role,RuleRegistry,Schema,Scope,Scorecard,SignOffHistory,Tag,Target,TargetAssociation,TargetSource,TaskResult,TimePeriod,WorkflowCase,WorkflowTarget,WorkItem,WorkItemArchive,WorkItemConfig";
+        String pathForExportFiles = "/home/spadmin/ProvisioningTraining/admin/backup/";
+    
+
+        String result = "";
+        String outputByReturn = "";
+       
+        List classesToIgnore = Util.csvToList(listOfIgnoredClasses);
+
+        Calendar fuzzCalendar = Calendar.getInstance();
+        fuzzCalendar.setTime(installDate);
+        
+        
+        try {
+            
+            List objectTypes = getSailPointObjectClasses();
+            
+            String objectTypesString = "ObjectTypes=";
+            for (Class clazz : objectTypes) {
+                String qualifiedClassName = clazz.getName();
+                int idx = qualifiedClassName.lastIndexOf(".");
+                String shortClassName = null;
+                if(idx != -1) {
+                    shortClassName = qualifiedClassName.substring(idx + 1, qualifiedClassName.length());
+                }
+                
+                if(!classesToIgnore.contains(shortClassName)) {
+                    objectTypesString = objectTypesString + shortClassName + ",";		
+		}
+            }
+            
+            objectTypesString = objectTypesString.substring(0, objectTypesString.length() - 1);
+            //outputByReturn = outputByReturn + objectTypesString + "\n";
+                        
+            for (Class clazz : objectTypes) {
+
+                String qualifiedClassName = clazz.getName();
+                int idx = qualifiedClassName.lastIndexOf(".");
+                String shortClassName = null;
+                if(idx != -1) {
+                    shortClassName = qualifiedClassName.substring(idx + 1, qualifiedClassName.length());
+                }
+
+               	if (debug) { System.out.println("About to process Class=" + shortClassName); }
+
+		//outputByReturn = outputByReturn + "\n" + shortClassName + "="; 
+                
+                if(!classesToIgnore.contains(shortClassName)) {
+
+               	    if (debug) { System.out.println("    Not on Ignore List, so process..."); }
+                
+                    List objects = context.getObjects(clazz);
+
+		     if (debug) { System.out.println("    Found " + objects.size() + " object(s)..."); }                   
+
+                    String outputObjectNames = "";
+                    for(SailPointObject objectToCheck : objects) {
+                        Date created = objectToCheck.getCreated();
+                        Date modified = objectToCheck.getModified();
+                        Date cutoff = fuzzCalendar.getTime();
+                        String objectName = objectToCheck.getName();
+                        if (objectName == null) {objectName = "";}
+			 if (debug) { System.out.println("          Object: " + objectName); }                   
+
+			if(((created != null) &amp;&amp; (created.after(cutoff))) || ((modified != null) &amp;&amp; (modified.after(cutoff)))) {
+				if (debug) { System.out.println("          EXPORT:" + objectName); }                            
+				
+				outputByReturn = outputByReturn + "checkout " + shortClassName + " '" + objectName + "' " + pathForExportFiles + shortClassName + "_" + objectName.replace(' ','_') + ".xml -clean\n";
+                        }
+                        context.decache(objectToCheck);
+                    }
+                    
+                    if(outputObjectNames.length() > 0) {
+                        outputObjectNames = outputObjectNames.substring(0, outputObjectNames.length() - 1);
+                        //outputByReturn = outputByReturn + outputObjectNames;
+                    }
+                    
+                    
+                }
+            }
+
+        }  catch (Throwable th) {
+            StringWriter sw = new StringWriter();
+            PrintWriter pw = new PrintWriter(sw);
+            th.printStackTrace(pw);
+            if(sw != null) {
+                result += "\n" + sw.toString();
+            }
+        }
+
+        return outputByReturn;
+
+
+   
+   </Source>
+</Rule>
