@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Plugin PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Plugin displayName="ApplicationOnboard" minSystemVersion="8.2" name="applicationonboard" rightRequired="applicationonboardRight" version="0.1">
+  <Attributes>
+    <Map>
+      <entry key="minUpgradableVersion" value="0.1"/>
+      <entry key="fullPage">
+        <value>
+          <FullPage title="Full Page"/>
+        </value>
+      </entry>
+      <entry key="snippets">
+        <value>
+          <List>
+            <Snippet regexPattern="" rightRequired="applicationonboardRight">
+              <Scripts>
+                <String>ui/js/header.js</String>
+              </Scripts>
+              <StyleSheets>
+                <String>ui/css/style.css</String>
+              </StyleSheets>
+            </Snippet>
+          </List>
+        </value>
+      </entry>
+      <entry key="restResources">
+        <value>
+          <List>
+            <String>sailpoint.plugin.applicationonboard.rest.OnboardApplicationResource</String>
+          </List>
+        </value>
+      </entry>
+    </Map>
+  </Attributes>
+</Plugin>
