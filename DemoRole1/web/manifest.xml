@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Plugin PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Plugin displayName="DemoApp1" minSystemVersion="8.1" name="demoapp1" rightRequired="" version="0.1">
+<Attributes>
+<Map>
+<entry key="minUpgradableVersion" value="0.1"/>
+<entry key="fullPage">
+<value>
+<FullPage title="Full Page"/>
+</value>
+</entry>
+<entry key="snippets">
+<value>
+<List>
+<Snippet regexPattern=".*" rightRequired="">
+<Scripts>
+<String>ui/js/header.js</String>
+</Scripts>
+<StyleSheets>
+<String>ui/css/style.css</String>
+</StyleSheets>
+</Snippet>
+</List>
+</value>
+</entry>
+<entry key="restResources">
+<value>
+<List>
+<String>sailpoint.plugin.demoapp1.rest.AppResource</String>
+</List>
+</value>
+</entry>
+</Map>
+</Attributes>
+</Plugin>

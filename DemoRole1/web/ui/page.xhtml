@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- (c) Copyright 2016 SailPoint Technologies, Inc., All Rights Reserved. -->
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:c="http://java.sun.com/jstl/core"
+    xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:sp="http://sailpoint.com/ui"
+    xmlns:t="http://myfaces.apache.org/tomahawk" xmlns:ui="http://java.sun.com/jsf/facelets">
+<body>
+    <ui:composition>
+        <script src="#{plugins.requestContextPath}/plugin/demorole1/ui/js/SailPointBundleLibrary.js" />
+        <script src="#{plugins.requestContextPath}/plugin/demorole1/ui/js/app.js" />
+        <div class="container" ng-app="demoapp1" ng-controller="demoapp1Controller">
+            <div class="row m-t">
+                <div class="panel">
+                    <div class="panel-heading bg-light lter">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <span class="panel-title"><b>Onboard Application</b></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body" style="padding: 0px">
+                        <div class="row">
+                            <div ng-if="isCreateOpAllowed" class="col-sm-2"
+                                style="padding-top: 10px; padding-bottom: 10px">
+                                <button class="btn btn-info" ng-click="createApp()">Create Application</button>
+                            </div>
+                        </div>
+                      
+                      
+					       <div class="container py-3" ng-if="ATV_INDEX == 1">
+                            <div class="row">
+                                <div class="col" style="padding-left:15px; padding-right:15px">
+                                    <form>
+                                        <div style="margin-bottom:15px">
+                                            <label for="appName" class="form-label">Application Name</label>
+                                            <input ng-model="appName" type="text" class="form-control" id="appName"
+                                                aria-describedby="emailHelp" />
+                                        </div>
+                                        <div style="margin-bottom:15px">
+                                            <label for="appDesc" class="form-label">Application Description</label>
+                                            <input ng-model="appDesc" type="text" class="form-control" id="appDesc"
+                                                aria-describedby="emailHelp" />
+                                        </div>
+                                        <div>
+                                            <label style="margin-bottom:15px" for="appType">Application Type</label>
+                                            <select name="appType" id="appType" ng-model="appType">
+                                                <option value="jdbc">JDBC</option>
+                                                <option value="webservice">Webservice</option>
+                                            </select>
+                                        </div>
+                                        <div>
+                                            <label style="margin-bottom:15px" for="ownerName">Application Owner</label>
+                                            <select name="ownerName" id="ownerName" ng-model="selectedOwner">
+                                                <option value="" selected="selected">Select</option>
+                                                <option ng-repeat="user in userList" value="{{ user.userName }}">{{
+                                                    user.displayName }}</option>
+                                            </select>
+                                        </div>
+										<button type="submit" style="margin-top: 15px; margin-bottom: 15px"
+                                            ng-click="createappMethod(appName, appDesc, appType, selectedOwner, status)"
+                                            class="btn btn-primary mt-2">Submit</button>
+                                        <div ng-if="appCreationStatus != ''" style="margin-bottom: 15px">
+                                            <strong>Status: </strong> {{appCreationStatus}}
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="#{plugins.requestContextPath}/plugin/demorole1/ui/js/angular.min.js"></script>
+        <script src="#{plugins.requestContextPath}/plugin/demorole1/ui/js/ui-bootstrap.min.js"></script>
+    </ui:composition>
+</body>
+</html>

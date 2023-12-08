@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE Plugin PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Plugin certificationLevel="None" disabled="false" displayName="DemoApp1" minSystemVersion="7.2" name="demoapp1" rightRequired="" version="0.1.131">
+<Attributes>
+<Map>
+<entry key="minUpgradableVersion" value="0.5.0.0"/>
+<entry key="fullPage">
+<value>
+<FullPage/>
+</value>
+</entry>
+<entry key="restResources">
+<value>
+<List>
+<String>sailpoint.plugin.demoapp1.rest.AppResource</String>
+</List>
+</value>
+</entry>
+<entry key="settings">
+<value>
+<List>
+<Setting dataType="boolean" defaultValue="false" helpText="Reset the original account id when switching users. This is to support electronic signatures." label="Reset Original Account Id" name="resetOriginalAccountId"/>
+</List>
+</value>
+</entry>
+<entry key="snippets">
+<value>
+<List>
+<Snippet regexPattern=".*" rightRequired="">
+<Scripts>
+<String>ui/js/headerInject.js</String>
+</Scripts>
+<StyleSheets>
+<String>/ui/css/plugin.css</String>
+</StyleSheets>
+</Snippet>
+<Snippet regexPattern=".*" rightRequired="">
+<Scripts>
+<String>ui/js/header.js</String>
+</Scripts>
+<StyleSheets>
+<String>ui/css/style.css</String>
+</StyleSheets>
+</Snippet>
+</List>
+</value>
+</entry>
+</Map>
+</Attributes>
+</Plugin>
