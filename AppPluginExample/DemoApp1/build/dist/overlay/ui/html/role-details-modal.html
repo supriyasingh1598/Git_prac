@@ -1,0 +1,63 @@
+<div id="infoModal" role="dialog" aria-labelledby="modalTitle" class="info-modal">
+	<div class="modal-header">
+		<h4 class="modal-title" id="modalTitle">Role</h4>
+	</div>
+	<div class="modal-body">
+		<div id="modal-content">
+			<table style="width: 100%;">
+				<tr>
+					<td style="width: 15%; height: 30px;"><strong>Name</strong></td>
+					<td ng-if="role.owner.displayName != currentUser" style="height: 30px;">{{ role.name }}</td>
+					<td ng-if="role.owner.displayName == currentUser" style="height: 30px;">
+						<input type="text" ng-model="obj.newRoleName"></input>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 30px;"><strong>Owner name</strong></td>
+					<td ng-if="role.owner.displayName != currentUser" style="height: 30px;">{{ role.owner.displayName }}
+					</td>
+					<td ng-if="role.owner.displayName == currentUser" style="height: 30px;">
+						<select ng-model="obj.newOwnerName"
+							ng-options="user.userName as user.displayName for user in userList"></select>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 30px;"><strong>Active</strong></td>
+					<td ng-if="role.owner.displayName != currentUser" style="height: 30px;">{{ role.active ? "Yes" :
+						"No" }}</td>
+					<td ng-if="role.owner.displayName == currentUser" style="height: 30px;">
+						<input type="checkbox" ng-model="obj.newStatus"></input>
+					</td>
+				</tr>
+				<tr>
+					<td style="height: 30px;"><strong>Type</strong></td>
+					<td style="height: 30px;">{{ role.type.displayName }}</td>
+				</tr>
+				<tr ng-if="role.requirements.length != 0">
+					<td rowspan="{{ role.requirements.length + 1 }}" style="height: 30px;"><strong>Requirements</strong>
+					</td>
+				</tr>
+
+				<tr ng-if="role.requirements.length != 0" ng-repeat="req in role.requirements">
+					<td> {{ req.displayName }} </td>
+				</tr>
+				<tr ng-if="role.inheritance.length != 0">
+					<td rowspan="{{ role.inheritance.length + 1 }}" style="height: 30px;"><strong>Inheritance</strong>
+					</td>
+				</tr>
+				<tr ng-if="role.inheritance.length != 0" ng-repeat="inher in role.inheritance">
+					<td> {{ inher.displayName }} </td>
+				</tr>
+			</table>
+			<hr ng-if="roleEditStatus != ''" style="margin-top: 25px">
+			<div ng-if="roleEditStatus != ''" style="margin-bottom: 15px">
+				<strong>Status: </strong> {{roleEditStatus}}
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer bg-light lt">
+		<button ng-if="role.owner.displayName == currentUser" tabindex="50" ng-click="save()" type="button"
+			class="btn btn-info btn-default">Save</button>
+		<button tabindex="50" ng-click="close()" type="button" class="btn btn-info btn-default">Close</button>
+	</div>
+</div>
